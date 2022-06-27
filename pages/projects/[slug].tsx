@@ -89,7 +89,7 @@ const PostPage = ({
             </div>
           </div>
         </Section>
-        <Section mobileFullWidth gridRule delay={0.5}>
+        <Section mobileFullWidth delay={0.5}>
             <Sheet className="prose prose-invert lg:text-lg prose-pre:bg-white/10">
               <motion.h1 
                 {...basicAnimation({ delay: 0.2 })}

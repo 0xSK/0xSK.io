@@ -37,7 +37,7 @@ const ProjectsPage = ({ projects }: ProjectsPageProps): JSX.Element => {
         />
         <Section>
           {/* Intro */}
-          <div className="grid lg:grid-cols-[1fr_1fr] md:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4">
             <motion.div
               {...basicAnimation({ delay: 0 })}
               className="col-span-1"

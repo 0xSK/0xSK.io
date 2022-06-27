@@ -33,7 +33,7 @@ const Section = ({
   // const HeadingTag: string = `h${headingLevel}`;
   const contents = (
     <div
-      className={`relative flex flex-col justify-center overflow-hidden bg-transparent pt-16 lg:pt-32 last:pb-16 lg:last:pb-32 lg:text-lg  ${className}`}
+      className={`relative flex flex-col justify-center overflow-y-visible overflow-x-clip bg-transparent pt-16 lg:pt-32 last:pb-16 lg:last:pb-32 lg:text-lg ${className}`}
       id={id}
     >
       <div

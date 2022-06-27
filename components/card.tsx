@@ -4,6 +4,7 @@ import Tilt, { ReactParallaxTiltProps } from 'react-parallax-tilt';
 import _ from 'lodash';
 import { basicAnimation } from './animation';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const defaultCardTiltProps: ReactParallaxTiltProps = {
   scale: 1.1,
@@ -45,11 +46,12 @@ const Card = ({
           <Link href={link} passHref scroll={false}>
             <a>
               <div className="">
-                <div>
-                  <img
-                    className="h-48 w-96 object-cover"
-                    src={image}
-                    alt={title}
+                <div className="h-auto w-full">
+                  <Image src={image} alt={title}  
+                    width={600}
+                    height={400}
+                    layout="responsive"
+                    objectFit="cover"
                   />
                 </div>
                 <div>

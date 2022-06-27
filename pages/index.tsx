@@ -20,7 +20,6 @@ import GlareImage from '../components/glareimage';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../components/animation';
 
-
 import type {
   ProjectFrontmatter,
   ThoughtFrontmatter,
@@ -47,8 +46,6 @@ const basicTransition = ({ delay }: basicTransitionProps): Transition => ({
   delay: delay || 0,
 });
 
-
-
 type HomeProps = {
   projects: ProjectFrontmatter[];
   thoughts: ThoughtFrontmatter[];
@@ -65,7 +62,12 @@ export async function getStaticProps() {
   };
 }
 
-const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
+const Home = ({
+  projects,
+  thoughts,
+  rants,
+}: HomeProps): JSX.Element => {
+  // console.log('received global state:', globalState);
   // const pageData = usePageData();
   const pageData = navData.home;
   return (
@@ -110,13 +112,10 @@ const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
           yOffset={'-500px'}
         />
         <Section>
-          {' '}
           {/* Intro */}
-          <div className="grid lg:grid-cols-[1fr_1fr] md:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4">
             <div className="col-span-1">
-              <motion.h1
-                {...basicAnimation({delay: 0.0})}
-              >
+              <motion.h1 {...basicAnimation({ delay: 0.0 })}>
                 Hello, I&rsquo;m
                 <GradientText
                   colors={pageData.colors}
@@ -128,9 +127,7 @@ const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
                 </GradientText>
                 .
               </motion.h1>
-              <motion.p
-                {...basicAnimation({delay: 0.1})}
-              >
+              <motion.p {...basicAnimation({ delay: 0.1 })}>
                 I just graduated from University of Illinois at Urbana-Champaign
                 with a major in Computer Engineering and a minor in Art &amp;
                 Design. This site is a work in progress, and aims to be a place
@@ -152,7 +149,7 @@ const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
             umamiEvent="home-projects-all"
             delay={0.3}
           />
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 pb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pb-10">
             {projects.map((project, i) => {
               return (
                 <Card

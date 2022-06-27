@@ -22,7 +22,7 @@ const Nav = ({}: NavProps): JSX.Element => {
   const currentPageKey: string = _.findKey(navData, (page) => {
     return useIsActive(page.href, page.label);
   });
-  console.log(currentPageKey);
+  // console.log(currentPageKey);
   const currentPageIndex = navPages.indexOf(currentPageKey);
   const currentPageData = navData[currentPageKey];
 
@@ -41,7 +41,7 @@ const Nav = ({}: NavProps): JSX.Element => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative py-10 md:py-0">
         <table
           className="sm:float-left md:float-right"
           onMouseLeave={() => {
@@ -79,7 +79,22 @@ const Nav = ({}: NavProps): JSX.Element => {
                           setHexColors(navPageData.colors);
                           setHexAltColors(navPageData.altColors);
                           setHexThickness(10);
-                          setHexAltScale(1.7);
+                          setHexAltScale(1.6);
+                        }}
+                        onClick={() => {
+                          // setHexAngle(initHexAngle);
+                          // setHexColors(initHexColor);
+                          // setHexAltColors(initHexAltColor);
+                          // setHexThickness(initHexThickness);
+                          // setHexAltScale(initHexScale);
+                          setHexAngle(index * hexAngleChange + 30);
+                          setHexThickness(20);
+                          setHexAltScale(1.6);
+                          setTimeout(() => {
+                            setHexAngle(index * hexAngleChange + 60);
+                            setHexThickness(initHexThickness);
+                            setHexAltScale(initHexScale);
+                          }, 300);
                         }}
                       >
                         {navPageData.label}
@@ -92,13 +107,13 @@ const Nav = ({}: NavProps): JSX.Element => {
             })}
           </tbody>
         </table>
-        {/* <Hex
+        <Hex
           angle={hexAngle}
           colors={hexAltColors}
-          thickness={initHexThickness}
+          thickness={2}
           scale={hexAltScale}
           className="-z-20"
-        /> */}
+        />
         <Hex
           angle={hexAngle}
           colors={hexColors}

@@ -18,14 +18,14 @@ const navData: { [key: string]: NavItem } = {
   about: {
     href: '/about',
     label: 'About',
-    colors: [colors.pink['300'], colors.rose['400']],
-    altColors: [colors.pink['300'], colors.red['400']],
+    colors: [colors.red['200'], colors.pink['400']],
+    altColors: [colors.pink['300'], colors.rose['400']],
   },
   projects: {
     href: '/projects',
     label: 'Projects',
-    colors: [colors.blue['300'], colors.indigo['400'], colors.blue['100']],
-    altColors: [colors.indigo['500'], colors.blue['300']],
+    colors: [colors.fuchsia['300'], colors.pink['400'],],
+    altColors: [colors.fuchsia['200'], colors.fuchsia['400']],
   },
   thoughts: {
     href: '/thoughts',
@@ -42,8 +42,8 @@ const navData: { [key: string]: NavItem } = {
   resume: {
     href: '/resume',
     label: 'Résumé',
-    colors: [colors.blue['300'], colors.indigo['400']],
-    altColors: [colors.blue['300'], colors.purple['400']],
+    colors: [colors.fuchsia['300'], colors.pink['400'],],
+    altColors: [colors.fuchsia['200'], colors.fuchsia['400']],
   },
 };
 

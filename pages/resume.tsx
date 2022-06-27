@@ -10,6 +10,7 @@ import type { TimelineProps } from '../components/timeline';
 import Sheet from '../components/sheet';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../components/animation';
+import navData from '../components/navdata';
 
 const educationData: TimelineEntry[] = [
   {
@@ -169,18 +170,24 @@ const academicExperienceData: TimelineEntry[] = [
 const Resume: NextPage = () => (
   <>
     <div className="relative">
-      <GlareImage
+      {/* <GlareImage
         imageNumber={2}
         className=""
         hueOffset={10}
         opacityStatic={0.7}
         scale={1.3}
         xOffset="calc(50% - 100px)"
-        yOffset="calc(50% - 100px)"
-      />
+        yOffset="-300px"
+      /> */}
+      <GlareImage
+          scale={2}
+          hueOffset={-50}
+          xOffset={'calc(50vw - 1000px)'}
+          yOffset={'-500px'}
+        />
       <Section>
         {/* Intro */}
-        <div className="grid lg:grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4">
           <div className="col-span-1">
             <motion.div {...basicAnimation({ delay: 0 })}>
               <Breadcrumb />
@@ -195,8 +202,8 @@ const Resume: NextPage = () => (
           </div>
         </div>
       </Section>
-      <Section mobileFullWidth gridRule>
-        <Sheet>
+      <Section mobileFullWidth>
+        <Sheet color={navData.resume.colors[0]}>
           <div className="px-1 md:px-8 lg:px-12">
             <motion.h2
               {...basicAnimation({ delay: 0.3 })}

@@ -34,7 +34,7 @@ I sometimes write about my [findings and thoughts](/thoughts) on this website, a
 
 This website is a work in progress. After procastinating for serveral months, I decided to take a break and start working on this website (and on the way, also update my web development knowledge with new tools in the Javascript ecosystem). This is my first time building an entire website from scratch, and it has been a fun programming experience --- certainly more fun than dealing with most hardware workflows!
 
-This website is built with <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>, and mostly styled using <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Credit for the awesome typefaces goes to <a href="https://fonts.floriankarsten.com/" target="_blank" rel="noreferrer">Florain Karsten Typefaces</a> and <a href="https://indiantypefoundry.com/" target="_blank" rel="noreferrer">Indian Type Foundry</a>. Source code for this website is available on <a href="https://github.com/0xsk/0xsk.io" target="_blank" rel="noreferrer">here</a>.
+This website is built with <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>, styled using <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Credit for the awesome typefaces goes to <a href="https://fonts.floriankarsten.com/" target="_blank" rel="noreferrer">Florain Karsten Typefaces</a> and <a href="https://indiantypefoundry.com/" target="_blank" rel="noreferrer">Indian Type Foundry</a>. Source code for this website is available on <a href="https://github.com/0xsk/0xsk.io" target="_blank" rel="noreferrer">here</a>.
 
 ### Privacy
 
@@ -94,17 +94,17 @@ const About: NextPage = () => {
           dynamic={false}
           imageNumber={4}
           className=""
-          hueOffset={10}
-          opacityStatic={0.5}
+          hueOffset={40}
+          opacityStatic={0.6}
           scale={1.3}
-          xOffset="right -100px"
-          yOffset="top -100px"
+          xOffset="30%"
+          yOffset="0"
         />
         <GlareImage
           imageNumber={2}
           className=""
-          hueOffset={10}
-          opacityStatic={0.7}
+          hueOffset={30}
+          opacityStatic={0.9}
           scale={1.3}
           xOffset="calc(50% - 100px)"
           yOffset="calc(50% - 100px)"
@@ -112,7 +112,7 @@ const About: NextPage = () => {
 
         <Section>
           {/* Intro */}
-          <div className="grid lg:grid-cols-[1fr_1fr] md:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4">
             <div className="col-span-1">
               {/* <Breadcrumb /> */}
               <motion.h3 {...basicAnimation({ delay: 0 })}>
@@ -159,13 +159,13 @@ const About: NextPage = () => {
           </div>
         </Section>
         <Section>
-          <div className="grid lg:grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr] sm:grid-cols-1 lg:gap-24 md:gap-12">
-            <motion.div className="col-span-1 order-2 md:order-1"
+          <div className="grid lg:grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr] sm:grid-cols-2 grid-cols-1 lg:gap-24 sm:gap-12">
+            <motion.div className="col-span-1 order-2 sm:order-1"
             {...basicAnimation({ delay: 0.5 })}
             >
               <div className="prose prose-invert lg:prose-lg">
-                <hr className="md:hidden" />
-                <h3 className="md:hidden">About Me</h3>
+                <hr className="sm:hidden mt-10" />
+                <h3 className="sm:hidden">About Me</h3>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: bettermd().render(aboutMd),
@@ -173,7 +173,7 @@ const About: NextPage = () => {
                 />
               </div>
             </motion.div>
-            <motion.div className="col-span-1 order-1 md:order-2"
+            <motion.div className="col-span-1 order-1 sm:order-2"
             {...basicAnimation({ delay: 0.7 })}>
               <div className="prose prose-invert lg:prose-lg">
                 <div
