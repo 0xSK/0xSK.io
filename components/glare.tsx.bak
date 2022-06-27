@@ -1,0 +1,91 @@
+
+import { FC } from 'react';
+import { css } from '@emotion/react';
+
+const getTranslateClass = (direction: string, offset: string) => {
+  // if negative offset or not
+  const offsetSign = offset.startsWith('-') ? '-' : '';
+  const offsetValue = offset.startsWith('-') ? offset.substring(1) : offset;
+  const className = `${offsetSign}translate-${direction}-[${offsetValue}]`;
+  return className;
+};
+
+type GlareProps = {
+  dynamic?: boolean;
+  hueOffset?: number;
+  hueChange?: number;
+  hueTime?: number;
+  opacityRange?: number[];
+  opacityStatic?: number;
+  opacityTime?: number;
+  imageNumber?: number;
+  xOffset?: string;
+  yOffset?: string;
+  scale?: number;
+  className?: string;
+};
+
+const Glare: FC<GlareProps> = ({
+  dynamic = false,
+  hueOffset = 0,
+  hueChange = 10,
+  hueTime = 10,
+  opacityRange = [0.5, 1],
+  opacityStatic = 0.75,
+  opacityTime = 15,
+  imageNumber = 0,
+  xOffset = '-50%',
+  yOffset = '-20%',
+  scale = 1,
+  className = '',
+}) => {
+  const AnimationStyle = css`
+    @keyframes hue-change {
+      0% {
+        filter: hue-rotate(${hueOffset - hueChange}deg);
+      }
+      50% {
+        filter: hue-rotate(${hueOffset + hueChange}deg);
+      }
+      100% {
+        filter: hue-rotate(${hueOffset - hueChange}deg);
+      }
+    }
+    @keyframes opacity-change {
+      0% {
+        opacity: ${opacityRange[0]};
+      }
+      50% {
+        opacity: ${opacityRange[1]};
+      }
+      100% {
+        opacity: ${opacityRange[0]};
+      }
+    }
+
+    animation: hue-change ${hueTime}s ease-in-out infinite,
+      opacity-change ${opacityTime}s ease-in-out infinite;
+  `;
+
+  const BaseStyle = css`
+    filter: hue-rotate(${hueOffset}deg);
+    opacity: ${opacityStatic};
+  `;
+
+  return (
+    <img
+      src={`/images/glare/${imageNumber}.png`}
+      className={`absolute -z-10 top-0 left-1/2 mix-blend-lighten overflow-hidden bg-cover
+      ${className}`}
+      css={[
+        BaseStyle,
+        dynamic ? AnimationStyle : '',
+        css`
+          transform: translate(${xOffset}, ${yOffset}) scale(${scale});
+        `,
+      ]}
+    />
+  );
+};
+
+export default Glare;

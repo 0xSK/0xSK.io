@@ -1,0 +1,13 @@
+// no clue why this works, stolen from https://github.com/vercel/next.js/discussions/15289#discussioncomment-1016169
+{
+    "presets": [
+      [
+        "next/babel",
+        {
+          "preset-react": {
+            "importSource": "@emotion/react"
+          }
+        }
+      ]
+    ]
+  }
