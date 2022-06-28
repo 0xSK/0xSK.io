@@ -99,7 +99,7 @@ const Hex = ({
             height: 100%;
           `}
         >
-          {[...Array(6).keys()].map((i) => (
+          {Array.from(Array(6).keys()).map((i) => (
             <LineSegment
               key={i}
               rotation={i * 60}

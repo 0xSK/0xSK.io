@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { css } from '@emotion/react';
 import { motion } from 'framer-motion';
-import { glareAnimation, basicAnimation } from '../components/animation';
+import { basicAnimation } from '../components/animation';
 
 const getTranslateClass = (direction: string, offset: string) => {
   // if negative offset or not

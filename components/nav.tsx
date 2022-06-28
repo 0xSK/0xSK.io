@@ -21,7 +21,7 @@ const useIsActive = (href: string, label: string): boolean => {
 const Nav = ({}: NavProps): JSX.Element => {
   const currentPageKey: string = _.findKey(navData, (page) => {
     return useIsActive(page.href, page.label);
-  });
+  }) || 'home';
   // console.log(currentPageKey);
   const currentPageIndex = navPages.indexOf(currentPageKey);
   const currentPageData = navData[currentPageKey];
