@@ -19,32 +19,12 @@ import usePageData from '../components/usepagedata';
 import GlareImage from '../components/glareimage';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../components/animation';
-
 import type {
   ProjectFrontmatter,
   ThoughtFrontmatter,
   RantFrontmatter,
   // Frontmatter,
 } from '../components/getdirfrontmatters';
-
-const variants = {
-  hidden: { opacity: 0, x: -200, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 0, x: 0, y: -100 },
-};
-
-type basicTransitionProps = {
-  delay?: number;
-};
-
-const basicTransition = ({ delay }: basicTransitionProps): Transition => ({
-  type: 'spring',
-  stiffness: 100,
-  damping: 10,
-  mass: 1,
-  velocity: 0,
-  delay: delay || 0,
-});
 
 type HomeProps = {
   projects: ProjectFrontmatter[];

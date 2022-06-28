@@ -24,20 +24,20 @@ const navData: { [key: string]: NavItem } = {
   projects: {
     href: '/projects',
     label: 'Projects',
-    colors: [colors.fuchsia['300'], colors.pink['400'],],
-    altColors: [colors.fuchsia['200'], colors.fuchsia['400']],
+    colors: [colors.blue['300'], colors.indigo['400'],],
+    altColors: [colors.indigo['200'], colors.blue['400']],
   },
   thoughts: {
     href: '/thoughts',
     label: 'Thoughts',
-    colors: [colors.red['300'], colors.yellow['400']],
-    altColors: [colors.orange['300'], colors.amber['400']],
+    colors: [colors.lime['200'], colors.emerald['400']],
+    altColors: [colors.emerald['400'], colors.emerald['200']],
   },
   rants: {
     href: '/rants',
     label: 'Rants',
-    colors: [colors.yellow['300'], colors.orange['400']],
-    altColors: [colors.amber['300'], colors.red['400']],
+    colors: [colors.amber['200'], colors.yellow['400']],
+    altColors: [colors.amber['200'], colors.orange['400']],
   },
   resume: {
     href: '/resume',

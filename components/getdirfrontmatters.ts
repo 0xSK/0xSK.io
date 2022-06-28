@@ -20,6 +20,8 @@ type ThoughtFrontmatter = {
   desc: string;
   date: string;
   tags: string[];
+  coverImage? : string;
+  socialImage? : string;
 };
 
 type RantFrontmatter = {
@@ -29,6 +31,8 @@ type RantFrontmatter = {
   desc: string;
   date: string;
   tags: string[];
+  coverImage?: string;
+  socialImage?: string;
 };
 
 type Frontmatter = ProjectFrontmatter | ThoughtFrontmatter | RantFrontmatter;

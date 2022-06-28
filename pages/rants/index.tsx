@@ -8,34 +8,34 @@ import Card from '../../components/card';
 import usePageData from '../../components/usepagedata';
 import GlareImage from '../../components/glareimage';
 import Breadcrumb from '../../components/breadcrumb';
-import type { ProjectFrontmatter } from '../../components/getdirfrontmatters';
+import type { RantFrontmatter } from '../../components/getdirfrontmatters';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../../components/animation';
+import PostList from '../../components/postlist';
 
-
-type ProjectsPageProps = {
-  projects: ProjectFrontmatter[];
+type RantsPageProps = {
+  rants: RantFrontmatter[];
 };
 
 export async function getStaticProps() {
   return {
     props: {
-      projects: getDirFrontmatters('posts/projects'),
+      rants: getDirFrontmatters('posts/rants'),
     },
   };
 }
 
-const ProjectsPage = ({ projects }: ProjectsPageProps): JSX.Element => {
-  const pageData = navData.projects;
+const RantsPage = ({ rants }: RantsPageProps): JSX.Element => {
+  const pageData = navData.rants;
   return (
     <>
       <div className="relative">
         <GlareImage
-        imageNumber={1}
-        opacityStatic={0.9}
-          scale={2}
-          hueOffset={-90}
-          xOffset={'calc(50vw - 1000px)'}
+          imageNumber={0}
+          opacityStatic={1}
+          scale={1.5}
+          hueOffset={90}
+          xOffset={'-300px'}
           yOffset={'-500px'}
         />
         <Section>
@@ -53,24 +53,16 @@ const ProjectsPage = ({ projects }: ProjectsPageProps): JSX.Element => {
           </div>
         </Section>
         <Section>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 pb-10">
-            {projects.map((project, i) => {
-              return (
-                <Card
-                  key={i}
-                  title={project.title}
-                  image={project.coverImage}
-                  link={`/projects/${project.slug}`}
-                  umamiEvent={`projects-project-${project.slug}`}
-                  delay={0.2 + i * 0.1}
-                />
-              );
-            })}
-          </div>
+          <PostList
+            posts={rants}
+            baseDir="rants"
+            umamiEventPrefix="rants-"
+            baseDelay={0.2}
+          />
         </Section>
       </div>
     </>
   );
 };
 
-export default ProjectsPage;
+export default RantsPage;

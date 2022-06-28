@@ -8,33 +8,33 @@ import Card from '../../components/card';
 import usePageData from '../../components/usepagedata';
 import GlareImage from '../../components/glareimage';
 import Breadcrumb from '../../components/breadcrumb';
-import type { ProjectFrontmatter } from '../../components/getdirfrontmatters';
+import type { ThoughtFrontmatter } from '../../components/getdirfrontmatters';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../../components/animation';
+import PostList from '../../components/postlist';
 
-
-type ProjectsPageProps = {
-  projects: ProjectFrontmatter[];
+type ThoughtsPageProps = {
+  thoughts: ThoughtFrontmatter[];
 };
 
 export async function getStaticProps() {
   return {
     props: {
-      projects: getDirFrontmatters('posts/projects'),
+      thoughts: getDirFrontmatters('posts/thoughts'),
     },
   };
 }
 
-const ProjectsPage = ({ projects }: ProjectsPageProps): JSX.Element => {
-  const pageData = navData.projects;
+const ThoughtsPage = ({ thoughts }: ThoughtsPageProps): JSX.Element => {
+  const pageData = navData.thoughts;
   return (
     <>
       <div className="relative">
         <GlareImage
-        imageNumber={1}
-        opacityStatic={0.9}
+          imageNumber={1}
+          opacityStatic={1}
           scale={2}
-          hueOffset={-90}
+          hueOffset={200}
           xOffset={'calc(50vw - 1000px)'}
           yOffset={'-500px'}
         />
@@ -53,24 +53,16 @@ const ProjectsPage = ({ projects }: ProjectsPageProps): JSX.Element => {
           </div>
         </Section>
         <Section>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 pb-10">
-            {projects.map((project, i) => {
-              return (
-                <Card
-                  key={i}
-                  title={project.title}
-                  image={project.coverImage}
-                  link={`/projects/${project.slug}`}
-                  umamiEvent={`projects-project-${project.slug}`}
-                  delay={0.2 + i * 0.1}
-                />
-              );
-            })}
-          </div>
+          <PostList
+            posts={thoughts}
+            baseDir="thoughts"
+            umamiEventPrefix="thoughts-"
+            baseDelay={0.2}
+          />
         </Section>
       </div>
     </>
   );
 };
 
-export default ProjectsPage;
+export default ThoughtsPage;

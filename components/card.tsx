@@ -49,7 +49,7 @@ const Card = ({
                 <div className="h-auto w-full">
                   <Image src={image} alt={title}  
                     width={600}
-                    height={400}
+                    height={300}
                     layout="responsive"
                     objectFit="cover"
                   />

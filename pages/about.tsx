@@ -34,13 +34,11 @@ I sometimes write about my [findings and thoughts](/thoughts) on this website, a
 
 This website is a work in progress. After procastinating for serveral months, I decided to take a break and start working on this website (and on the way, also update my web development knowledge with new tools in the Javascript ecosystem). This is my first time building an entire website from scratch, and it has been a fun programming experience --- certainly more fun than dealing with most hardware workflows!
 
-This website is built with <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>, styled using <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>. Credit for the awesome typefaces goes to <a href="https://fonts.floriankarsten.com/" target="_blank" rel="noreferrer">Florain Karsten Typefaces</a> and <a href="https://indiantypefoundry.com/" target="_blank" rel="noreferrer">Indian Type Foundry</a>. Source code for this website is available on <a href="https://github.com/0xsk/0xsk.io" target="_blank" rel="noreferrer">here</a>.
+This website is built with <a href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a>, styled using <a href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind CSS</a>, and animated using <a href="https://www.framer.com/motion/" target="_blank" rel="noreferrer">Framer Motion</a>. Credit for the awesome typefaces goes to <a href="https://fonts.floriankarsten.com/" target="_blank" rel="noreferrer">Florain Karsten Typefaces</a> and <a href="https://indiantypefoundry.com/" target="_blank" rel="noreferrer">Indian Type Foundry</a>. Source code for this website is available <a href="https://github.com/0xsk/0xsk.io" target="_blank" rel="noreferrer">here</a>.
 
 ### Privacy
 
-I am a strong advocate for privacy. [This website does not use any cookies](https://thejenkinscomic.wordpress.com/2021/01/26/doesnt-use-cookies/) or any other tracking technology. 
-
-
+I am a strong advocate for privacy. <a href="https://thejenkinscomic.wordpress.com/2021/01/26/doesnt-use-cookies/" target="_blank" rel="noreferrer">This website does not use any cookies</a>. To keep count of page views (as a way to guage interest on my site), I use a self-hosted instance of <a href="https://umami.is" target="_blank" rel="noreferrer">Umami</a>. Umami does not collect any personally identifiable information and anonymizes all data collected.
 `;
 
 const contactMd = `

@@ -70,3 +70,7 @@ h6 {
 .prose-heading-anchor {
   text-decoration: none !important;
 }
+
+.prose-container {
+  @apply prose prose-invert lg:text-lg prose-pre:bg-white/10 prose-code:bg-white/10 prose-code:before:content-none prose-code:after:content-none prose-code:px-2
+}

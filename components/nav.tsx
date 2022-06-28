@@ -34,6 +34,7 @@ const Nav = ({}: NavProps): JSX.Element => {
   const initHexScale = 1.5;
 
   var [hexAngle, setHexAngle] = useState<number>(initHexAngle);
+  var [hexAltAngle, setHexAltAngle] = useState<number>(initHexAngle);
   var [hexColors, setHexColors] = useState<string[]>(initHexColor);
   var [hexAltColors, setHexAltColors] = useState<string[]>(initHexAltColor);
   var [hexThickness, setHexThickness] = useState<number>(initHexThickness);
@@ -46,6 +47,7 @@ const Nav = ({}: NavProps): JSX.Element => {
           className="sm:float-left md:float-right"
           onMouseLeave={() => {
             setHexAngle(initHexAngle);
+            setHexAltAngle(initHexAngle);
             setHexColors(initHexColor);
             setHexAltColors(initHexAltColor);
             setHexThickness(initHexThickness);
@@ -76,6 +78,7 @@ const Nav = ({}: NavProps): JSX.Element => {
                       <a
                         onMouseEnter={() => {
                           setHexAngle(index * hexAngleChange);
+                          setHexAltAngle(index * hexAngleChange);
                           setHexColors(navPageData.colors);
                           setHexAltColors(navPageData.altColors);
                           setHexThickness(10);
@@ -88,10 +91,12 @@ const Nav = ({}: NavProps): JSX.Element => {
                           // setHexThickness(initHexThickness);
                           // setHexAltScale(initHexScale);
                           setHexAngle(index * hexAngleChange + 30);
+                          setHexAltAngle(index * hexAngleChange + 30);
                           setHexThickness(20);
                           setHexAltScale(1.6);
                           setTimeout(() => {
                             setHexAngle(index * hexAngleChange + 60);
+                            setHexAltAngle(index * hexAngleChange + 60);
                             setHexThickness(initHexThickness);
                             setHexAltScale(initHexScale);
                           }, 300);
@@ -108,7 +113,7 @@ const Nav = ({}: NavProps): JSX.Element => {
           </tbody>
         </table>
         <Hex
-          angle={hexAngle}
+          angle={hexAltAngle}
           colors={hexAltColors}
           thickness={2}
           scale={hexAltScale}

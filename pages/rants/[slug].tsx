@@ -14,7 +14,7 @@ import usePageData from '../../components/usepagedata';
 import GlareImage from '../../components/glareimage';
 import Breadcrumb from '../../components/breadcrumb';
 import Sheet from '../../components/sheet';
-import { ProjectFrontmatter } from '../../components/getdirfrontmatters';
+import { RantFrontmatter } from '../../components/getdirfrontmatters';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../../components/animation';
 import Image from 'next/image';
@@ -25,14 +25,14 @@ type Params = {
   };
 };
 
-type ProjectPostPageProps = {
-  frontmatter: ProjectFrontmatter;
+type RantPostPageProps = {
+  frontmatter: RantFrontmatter;
   content: string;
 };
 
 export function getStaticPaths() {
-  const projectsDir = 'posts/projects';
-  const files = fs.readdirSync(projectsDir);
+  const rantsDir = 'posts/rants';
+  const files = fs.readdirSync(rantsDir);
   const paths = files.map((file) => ({
     params: {
       slug: file.replace('.md', '').toLowerCase(),
@@ -45,9 +45,9 @@ export function getStaticPaths() {
 }
 
 export function getStaticProps({ params }: Params) {
-  const projectFile = `${process.cwd()}/posts/projects/${params.slug}.md`;
-  const projectContents = fs.readFileSync(projectFile, 'utf8');
-  const { data: frontmatter, content } = matter(projectContents);
+  const rantFile = `${process.cwd()}/posts/rants/${params.slug}.md`;
+  const rantContents = fs.readFileSync(rantFile, 'utf8');
+  const { data: frontmatter, content } = matter(rantContents);
   return {
     props: {
       frontmatter: frontmatter,
@@ -59,15 +59,15 @@ export function getStaticProps({ params }: Params) {
 const PostPage = ({
   frontmatter,
   content,
-}: ProjectPostPageProps): JSX.Element => {
-  const pageData = navData.projects;
+}: RantPostPageProps): JSX.Element => {
+  const pageData = navData.rants;
 
   return (
     <>
       <div className="relative">
         <GlareImage
           scale={2}
-          hueOffset={-90}
+          hueOffset={90}
           xOffset={'calc(50vw - 1000px)'}
           yOffset={'-500px'}
         />
@@ -92,7 +92,7 @@ const PostPage = ({
         </Section>
         <Section mobileFullWidth delay={0.5}>
           <Sheet
-            className="prose prose-invert lg:text-lg prose-pre:bg-white/10"
+            className="prose-container"
             color={pageData.colors[0]}
           >
             <motion.h1
@@ -113,19 +113,22 @@ const PostPage = ({
             >
               <p>Posted on {frontmatter.date}</p>
             </motion.div> */}
-            <motion.div
-              {...basicAnimation({ delay: 0.25 })}
-              className="h-auto max-w-prose mx-auto"
-            >
-              <Image
-                src={frontmatter.coverImage}
-                alt={frontmatter.title}
-                width={1200}
-                height={600}
-                layout="responsive"
-                objectFit="cover"
-              />
-            </motion.div>
+            {frontmatter.coverImage && (
+              <motion.div
+                {...basicAnimation({ delay: 0.25 })}
+                className="h-auto max-w-prose mx-auto"
+              >
+                <Image
+                  src={frontmatter.coverImage}
+                  alt={frontmatter.title}
+                  width={1200}
+                  height={600}
+                  layout="responsive"
+                  objectFit="cover"
+                />
+              </motion.div>
+            )}
+
             {/* <motion.hr
               {...basicAnimation({ delay: 0.2 })}
               className="mx-auto max-w-prose"
