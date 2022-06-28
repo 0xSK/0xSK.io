@@ -38,7 +38,9 @@ const Card = ({
   const tiltData = _.merge(defaultCardTiltProps, tiltProps);
   return (
     <>
-      <motion.div {...basicAnimation({ delay: delay })}>
+      <motion.div {...basicAnimation({ delay: delay })}
+      className="z-10"
+      >
         <Tilt
           {...tiltData}
           className={`${umamiEvent && `umami--click--${umamiEvent}`}`}
@@ -56,7 +58,7 @@ const Card = ({
                 </div>
                 <div>
                   {title && (
-                    <h5 style={{ transform: 'translateZ(0px)' }}>{title}</h5>
+                    <h5>{title}</h5>
                   )}
                   {desc && <p>{desc}</p>}
                 </div>

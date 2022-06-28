@@ -60,7 +60,7 @@ const GlareImage: FC<GlareImageProps> = ({
       //   duration: opacityTime,
       // })}
       {...basicAnimation({ opacity: opacityStatic, duration: opacityTime })}
-      className={`absolute inset-0 overflow-hidden mix-blend-lighten min-h-screen ${className}`}
+      className={`absolute inset-0 overflow-hidden mix-blend-lighten min-h-screen -z-100 pointer-events-none ${className}`}
       css={css`
         background-image: url(/images/glare/${imageNumber}.png);
         background-repeat: no-repeat;

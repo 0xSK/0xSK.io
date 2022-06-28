@@ -42,11 +42,7 @@ export async function getStaticProps() {
   };
 }
 
-const Home = ({
-  projects,
-  thoughts,
-  rants,
-}: HomeProps): JSX.Element => {
+const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
   // console.log('received global state:', globalState);
   // const pageData = usePageData();
   const pageData = navData.home;
@@ -145,7 +141,7 @@ const Home = ({
           </div>
         </Section>
 
-        <Section gridRule>
+        <Section>
           {/* Thoughts & Rants */}
           <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-24">
             <div className="col-span-1">

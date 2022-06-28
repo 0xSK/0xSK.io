@@ -27,7 +27,7 @@ const GridRule: FC<GridRuleProps> = ({
   return (
     <div
       // {...basicAnimation({ delay: delay })}
-      className="absolute inset-0 bg-[url(/images/grid/0.svg)] bg-top h-full min-h-1vh -z-10 opacity-50"
+      className="absolute inset-0 bg-[url(/images/grid/0.svg)] bg-top h-full min-h-1vh -z-90 opacity-50"
       css={gridRuleStyle}
     />
   );
