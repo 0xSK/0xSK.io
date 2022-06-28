@@ -54,29 +54,15 @@ const GlareImage: FC<GlareImageProps> = ({
     //   ]}
     // />
     <motion.div
-      // {...glareAnimation({
-      //   delay: 0,
-      //   finalOpacity: opacityStatic,
-      //   duration: opacityTime,
-      // })}
       {...basicAnimation({ opacity: opacityStatic, duration: opacityTime })}
       className={`absolute inset-0 overflow-hidden mix-blend-lighten min-h-screen -z-100 pointer-events-none ${className}`}
       css={css`
+        -webkit-transform: translateZ(0);
         background-image: url(/images/glare/${imageNumber}.png);
         background-repeat: no-repeat;
         background-size: ${scale * 1000}px ${scale * 1000}px;
         background-position: ${xOffset} ${yOffset};
         filter: hue-rotate(${hueOffset}deg);
-        // opacity: ${opacityStatic};
-        // @keyframes fadeIn {
-        //   0% {
-        //     opacity: 0;
-        //   }
-        //   100% {
-        //     opacity: ${opacityStatic};
-        //   }
-        // }
-        // animation: fadeIn ${opacityTime}s ease-in-out;
       `}
     />
   );
