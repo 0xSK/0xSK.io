@@ -29,7 +29,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html>
+    <Html style={{scrollBehavior:'smooth'}}>
       <Head>
         {/* Favicon etc. */}
         <link
