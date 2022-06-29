@@ -14,7 +14,7 @@ const GradientText = ({
   colors = [],
   hoverColors,
   angle = 130,
-  time = 3,
+  time = 1.5,
   initialAnimation = false,
   children,
 }: GradientTextProps): JSX.Element => {
@@ -25,14 +25,8 @@ const GradientText = ({
         0% {
           background-position: top left;
         }
-        25% {
-          background-position: top right;
-        }
         50% {
           background-position: bottom right;
-        }
-        75% {
-          background-position: buttom left;
         }
         100% {
           background-position: top left;
@@ -48,12 +42,16 @@ const GradientText = ({
       color: transparent;
       background-position: top left;
       background-size: 200% 200%;
-      ${initialAnimation
-        ? `animation: move-gradient ${time}s ease-in-out;`
-        : ''}
+      transition: background-position ${time}s ease-in-out;
+      ${initialAnimation &&
+      `animation-name: move-gradient;
+        animation-duration: ${time}s;
+        animation-iteration-count: once;
+        animation-timing-function: ease-in-out;
+        animation-delay: 1s;
+        `}
       &:hover {
-        animation: move-gradient ${time}s ease-in-out infinite alternate;
-        animation-direction: reverse;
+        background-position: bottom right;
       }
     `;
   } else {
