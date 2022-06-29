@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Script from 'next/script';
-import Date from './date';
+import DateString from './datestring';
 import _ from 'lodash';
 import Tilt from 'react-parallax-tilt';
 import type { ReactParallaxTiltProps } from 'react-parallax-tilt';
@@ -53,44 +53,51 @@ const PostList = ({
   const tiltData = _.merge(defaultPostListTiltProps, tiltProps);
   return (
     <>
-      {posts.map(({ title, date, slug }, i) => {
-        return (
-          <motion.div
-            {...basicAnimation({ delay: baseDelay + i * childrenDelay })}
-            key={i}
-          >
-            <Tilt
-              {...tiltData}
-              className={`py-2 ${
-                umamiEventPrefix && `umami--click--${umamiEventPrefix}${slug}`
-              }`}
+      {posts
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .map(({ title, date, slug }, i) => {
+          return (
+            <motion.div
+              {...basicAnimation({ delay: baseDelay + i * childrenDelay })}
+              key={i}
             >
-              <Link href={`${baseDir}/${slug}`} passHref scroll={false} key={i}>
-                <a>
-                  <table className="w-full">
-                    <colgroup>
-                      <col width="100%" />
-                      <col width="0%" />
-                    </colgroup>
-                    <tbody>
-                      <tr className="">
-                        <td className="text-left whitespace-nowrap text-ellipsis overflow-hidden max-w-0 py-1 text-lg font-semibold">
-                          {title}
-                        </td>
-                        {date && (
-                          <td className="text-right whitespace-nowrap">
-                            <Date date={date} className="font-thin text-sm" />
+              <Tilt
+                {...tiltData}
+                className={`py-2 ${
+                  umamiEventPrefix && `umami--click--${umamiEventPrefix}${slug}`
+                }`}
+              >
+                <Link
+                  href={`${baseDir}/${slug}`}
+                  passHref
+                  scroll={false}
+                  key={i}
+                >
+                  <a>
+                    <table className="w-full">
+                      <colgroup>
+                        <col width="100%" />
+                        <col width="0%" />
+                      </colgroup>
+                      <tbody>
+                        <tr className="">
+                          <td className="text-left whitespace-nowrap text-ellipsis overflow-hidden max-w-0 py-1 text-lg font-semibold">
+                            {title}
                           </td>
-                        )}
-                      </tr>
-                    </tbody>
-                  </table>
-                </a>
-              </Link>
-            </Tilt>
-          </motion.div>
-        );
-      })}
+                          {date && (
+                            <td className="text-right whitespace-nowrap">
+                              <DateString date={date} className="font-thin text-sm" />
+                            </td>
+                          )}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </a>
+                </Link>
+              </Tilt>
+            </motion.div>
+          );
+        })}
       {/* <Script
         src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"
         strategy="lazyOnload"

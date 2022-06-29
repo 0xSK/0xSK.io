@@ -12,7 +12,6 @@ import type { ProjectFrontmatter } from '../../components/getdirfrontmatters';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../../components/animation';
 
-
 type ProjectsPageProps = {
   projects: ProjectFrontmatter[];
 };
@@ -31,8 +30,8 @@ const ProjectsPage = ({ projects }: ProjectsPageProps): JSX.Element => {
     <>
       <div className="relative">
         <GlareImage
-        imageNumber={1}
-        opacityStatic={0.9}
+          imageNumber={1}
+          opacityStatic={0.9}
           scale={2}
           hueOffset={-90}
           xOffset={'calc(50vw - 1000px)'}
@@ -54,18 +53,23 @@ const ProjectsPage = ({ projects }: ProjectsPageProps): JSX.Element => {
         </Section>
         <Section>
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 pb-10">
-            {projects.map((project, i) => {
-              return (
-                <Card
-                  key={i}
-                  title={project.title}
-                  image={project.coverImage}
-                  link={`/projects/${project.slug}`}
-                  umamiEvent={`projects-project-${project.slug}`}
-                  delay={0.2 + i * 0.1}
-                />
-              );
-            })}
+            {projects
+              .sort(
+                (a, b) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime()
+              )
+              .map((project, i) => {
+                return (
+                  <Card
+                    key={i}
+                    title={project.title}
+                    image={project.coverImage}
+                    link={`/projects/${project.slug}`}
+                    umamiEvent={`projects-project-${project.slug}`}
+                    delay={0.2 + i * 0.1}
+                  />
+                );
+              })}
           </div>
         </Section>
       </div>

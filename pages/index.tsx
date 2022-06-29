@@ -126,18 +126,23 @@ const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
             delay={0.3}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pb-10">
-            {projects.map((project, i) => {
-              return (
-                <Card
-                  key={i}
-                  title={project.title}
-                  image={project.coverImage}
-                  link={`/projects/${project.slug}`}
-                  umamiEvent={`home-project-${project.slug}`}
-                  delay={0.3 + i * 0.05}
-                />
-              );
-            })}
+            {projects
+              .sort(
+                (a, b) =>
+                  new Date(b.date).getTime() - new Date(a.date).getTime()
+              )
+              .map((project, i) => {
+                return (
+                  <Card
+                    key={i}
+                    title={project.title}
+                    image={project.coverImage}
+                    link={`/projects/${project.slug}`}
+                    umamiEvent={`home-project-${project.slug}`}
+                    delay={0.3 + i * 0.05}
+                  />
+                );
+              })}
           </div>
         </Section>
 

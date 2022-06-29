@@ -8,7 +8,7 @@ import navData from '../../components/navdata';
 import Nav from '../../components/nav';
 import Glare from '../../components/glare';
 import React from 'react';
-import Date from '../../components/date';
+import DateString from '../../components/datestring';
 import { NextPage } from 'next';
 import usePageData from '../../components/usepagedata';
 import GlareImage from '../../components/glareimage';
@@ -81,7 +81,7 @@ const PostPage = ({
               <motion.div {...basicAnimation({ delay: 0.1 })}>
                 <p>{frontmatter.desc}</p>
                 <p className="font-thin text-sm">
-                  Posted on <Date date={frontmatter.date} />
+                  Posted on <DateString date={frontmatter.date} />
                 </p>
               </motion.div>
             </div>
