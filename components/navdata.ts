@@ -9,15 +9,15 @@ type NavItem = {
 };
 
 const navData: { [key: string]: NavItem } = {
+  // home: {
+  //   href: '/',
+  //   label: 'Home',
+  //   colors: [colors.pink['300'], colors.rose['400']],
+  //   altColors: [colors.red['200'], colors.pink['400']],
+  // },
   home: {
     href: '/',
     label: 'Home',
-    colors: [colors.pink['300'], colors.rose['400']],
-    altColors: [colors.red['200'], colors.pink['400']],
-  },
-  about: {
-    href: '/about',
-    label: 'About',
     colors: [colors.red['200'], colors.pink['400']],
     altColors: [colors.pink['300'], colors.rose['400']],
   },

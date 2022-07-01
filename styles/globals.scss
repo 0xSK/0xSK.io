@@ -15,6 +15,13 @@ body {
   // @apply overflow-x-hidden;
 }
 
+p {
+  @apply text-stone-300 my-4;
+  a {
+    @apply underline text-stone-100 font-semibold;
+  }
+}
+
 h1,
 h2,
 h3,
@@ -50,6 +57,10 @@ h6 {
   @apply text-base;
 }
 
+hr {
+  @apply border-slate-400 my-10;
+}
+
 /* Article Backdrop */
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
@@ -66,6 +77,8 @@ h6 {
     background-color: var(--blurred-container-background-fallback);
   }
 }
+
+/* prose overrides */
 
 .prose-heading-anchor {
   text-decoration: none !important;

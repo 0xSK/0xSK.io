@@ -8,9 +8,9 @@ import { basicAnimation } from './animation';
 type SectionHeaderProps = {
   heading: string;
   headingLevel?: number;
-  link: string;
+  link?: string;
   linkText?: string;
-  gradientColors: string[];
+  gradientColors?: string[];
   umamiEvent?: string;
   delay?: number;
 };
@@ -34,7 +34,7 @@ const SectionHeader = ({
   headingLevel = 2,
   link,
   linkText = 'more',
-  gradientColors,
+  gradientColors = [],
   umamiEvent,
   delay = 0,
 }: SectionHeaderProps): JSX.Element => {
@@ -55,27 +55,29 @@ const SectionHeader = ({
         <HeaderTag headerNumber={headingLevel} className="">
           {heading}
         </HeaderTag>
-        <span
-          className={`font-md font-semibold flex flex-col justify-around 
-        ${umamiEvent && `umami--click--${umamiEvent}`}
-      `}
-        >
-          <Link href={link} passHref scroll={false}>
-            <a>
-              <GradientText
-                colors={colorsArr}
-                hoverColors={gradientColors}
-                time={1.5}
-              >
-                <span>
-                  <span className="">{linkText}&nbsp;</span>{' '}
-                  {/* TODO: baseline shift */}
-                  <span className="font-mono">-&gt;</span>
-                </span>
-              </GradientText>
-            </a>
-          </Link>
-        </span>
+        {link && (
+          <span
+            className={`font-md font-semibold flex flex-col justify-around 
+              ${umamiEvent && `umami--click--${umamiEvent}`}
+            `}
+          >
+            <Link href={link} passHref scroll={false}>
+              <a>
+                <GradientText
+                  colors={colorsArr}
+                  hoverColors={gradientColors}
+                  time={1.5}
+                >
+                  <span>
+                    <span className="">{linkText}&nbsp;</span>{' '}
+                    {/* TODO: baseline shift */}
+                    <span className="font-mono">-&gt;</span>
+                  </span>
+                </GradientText>
+              </a>
+            </Link>
+          </span>
+        )}
       </motion.div>
     </>
   );

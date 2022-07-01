@@ -30,12 +30,12 @@ const defaultPostListTiltProps: ReactParallaxTiltProps = {
 type Post = {
   title: string;
   date: string;
-  slug: string;
+  link: string;
 };
 
 type PostListProps = {
   posts: Post[];
-  baseDir: string;
+  // baseDir: string;
   tiltProps?: ReactParallaxTiltProps;
   umamiEventPrefix?: string;
   baseDelay?: number;
@@ -44,7 +44,7 @@ type PostListProps = {
 
 const PostList = ({
   posts,
-  baseDir,
+  // baseDir,
   tiltProps,
   umamiEventPrefix,
   baseDelay = 0,
@@ -55,7 +55,7 @@ const PostList = ({
     <>
       {posts
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .map(({ title, date, slug }, i) => {
+        .map(({ title, date, link }, i) => {
           return (
             <motion.div
               {...basicAnimation({ delay: baseDelay + i * childrenDelay })}
@@ -68,7 +68,7 @@ const PostList = ({
                 }`}
               >
                 <Link
-                  href={`${baseDir}/${slug}`}
+                  href={`${link}`}
                   passHref
                   scroll={false}
                   key={i}
