@@ -20,7 +20,7 @@ type RantsPageProps = {
 export async function getStaticProps() {
   return {
     props: {
-      rants: getDirFrontmatters('posts/rants'),
+      rants: getDirFrontmatters('posts/rants', false, '/rants'),
     },
   };
 }

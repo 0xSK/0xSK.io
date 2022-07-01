@@ -19,7 +19,7 @@ type ProjectsPageProps = {
 export async function getStaticProps() {
   return {
     props: {
-      projects: getDirFrontmatters('posts/projects'),
+      projects: getDirFrontmatters('posts/projects', false, '/projects'),
     },
   };
 }

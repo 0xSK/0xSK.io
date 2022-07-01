@@ -28,9 +28,9 @@ import PostList from '../components/postlist';
 export async function getStaticProps() {
   return {
     props: {
-      projects: getDirFrontmatters('posts/projects', true),
-      thoughts: getDirFrontmatters('posts/thoughts', true),
-      rants: getDirFrontmatters('posts/rants', true),
+      projects: getDirFrontmatters('posts/projects', true, '/projects'),
+      thoughts: getDirFrontmatters('posts/thoughts', true, '/thoughts'),
+      rants: getDirFrontmatters('posts/rants', true, '/rants'),
     },
   };
 }
@@ -50,7 +50,7 @@ const AboutContent = ({ baseDelay }: ContentProps) => (
       My research interests are in the areas of Computer Architecture, Machine
       Learning, Acoustics, and Open-Source Hardware Toolchains.
     </motion.p>
-    <motion.p {...basicAnimation({delay: baseDelay + 0.10})}>
+    <motion.p {...basicAnimation({ delay: baseDelay + 0.1 })}>
       I'm passionate about Electronics Repair, Audio Engineering, Homelab (or
       personal workstations &amp; servers), Typography, Product Design, and
       UI/UX design. Most of my{' '}
@@ -59,7 +59,7 @@ const AboutContent = ({ baseDelay }: ContentProps) => (
       </Link>{' '}
       reflect these interests.
     </motion.p>
-    <motion.p {...basicAnimation({ delay: baseDelay + 0.15})}>
+    <motion.p {...basicAnimation({ delay: baseDelay + 0.15 })}>
       I sometimes write about my{' '}
       <Link href="/thoughts" passHref>
         <a>findings and thoughts</a>
@@ -74,9 +74,7 @@ const AboutContent = ({ baseDelay }: ContentProps) => (
   </>
 );
 
-const WebsiteInfoContent = (
-  { baseDelay }: ContentProps
-) => (
+const WebsiteInfoContent = ({ baseDelay }: ContentProps) => (
   <>
     <motion.h2 {...basicAnimation({ delay: baseDelay + 0 })}>Website</motion.h2>
     <motion.p {...basicAnimation({ delay: baseDelay + 0.05 })}>
@@ -104,7 +102,9 @@ const WebsiteInfoContent = (
       . Source code for this website is available{' '}
       <ExtLink href="https://github.com/0xsk/0xsk.io">here</ExtLink>.
     </motion.p>
-    <motion.h3 {...basicAnimation({ delay: baseDelay + 0.15 })}>Privacy</motion.h3>
+    <motion.h3 {...basicAnimation({ delay: baseDelay + 0.15 })}>
+      Privacy
+    </motion.h3>
     <motion.p {...basicAnimation({ delay: baseDelay + 0.2 })}>
       I am a strong advocate for privacy.{' '}
       <ExtLink
@@ -160,31 +160,18 @@ const FeaturedThoughtsAndRantsContent = ({
 }: {
   thoughts: ThoughtFrontmatter[];
   rants: RantFrontmatter[];
-}): JSX.Element => {
-  const rantPosts = _.map(rants, (rant) =>
-    _.merge(rant, {
-      link: `/rants/${rant.slug}`,
-    })
-  );
-  const thoughtPosts = _.map(thoughts, (thought) =>
-    _.merge(thought, {
-      link: `/thoughts/${thought.slug}`,
-    })
-  );
-  const thoughtsAndRants = _.concat(thoughtPosts, rantPosts);
-  return (
-    <>
-      <SectionHeader
-        heading="Thoughts + Rants"
-        gradientColors={navData.thoughts.colors}
-        umamiEvent="home-thoughts-all"
-        link="/thoughts"
-        delay={0.8}
-      />
-      <PostList posts={thoughtsAndRants} baseDelay={0.8} />
-    </>
-  );
-};
+}): JSX.Element => (
+  <>
+    <SectionHeader
+      heading="Thoughts + Rants"
+      gradientColors={navData.thoughts.colors}
+      umamiEvent="home-thoughts-all"
+      link="/thoughts"
+      delay={0.8}
+    />
+    <PostList posts={_.concat(thoughts, rants)} baseDelay={0.8} />
+  </>
+);
 
 const ContactContent = () => (
   <>

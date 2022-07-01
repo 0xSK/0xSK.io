@@ -1,5 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import _ from 'lodash';
 
 type ProjectFrontmatter = {
   slug: string;
@@ -11,6 +12,7 @@ type ProjectFrontmatter = {
   socialImage?: string;
   tags: string[];
   progress: string[];
+  link: string;
 };
 
 type ThoughtFrontmatter = {
@@ -20,8 +22,9 @@ type ThoughtFrontmatter = {
   desc: string;
   date: string;
   tags: string[];
-  coverImage? : string;
-  socialImage? : string;
+  coverImage?: string;
+  socialImage?: string;
+  link: string;
 };
 
 type RantFrontmatter = {
@@ -33,11 +36,16 @@ type RantFrontmatter = {
   tags: string[];
   coverImage?: string;
   socialImage?: string;
+  link: string;
 };
 
 type Frontmatter = ProjectFrontmatter | ThoughtFrontmatter | RantFrontmatter;
 
-const getDirFrontmatters = (dir: string, featuredOnly: boolean = false) => {
+const getDirFrontmatters = (
+  dir: string,
+  featuredOnly: boolean = false,
+  linkPrefix: string
+) => {
   const getFileFrontmatter = (file: string): Frontmatter => {
     const fileContents = fs.readFileSync(file, 'utf8');
     const { data: parsedFrontmatter } = matter(fileContents);
@@ -47,7 +55,12 @@ const getDirFrontmatters = (dir: string, featuredOnly: boolean = false) => {
   const files = fs.readdirSync(dir);
   const frontmatters = files
     .map((file) => getFileFrontmatter(`${dir}/${file}`))
-    .filter((frontmatter) => !featuredOnly || frontmatter.featured);
+    .filter((frontmatter) => !featuredOnly || frontmatter.featured)
+    .map((frontmatter) => ({
+      ...frontmatter,
+      link: `${linkPrefix}/${frontmatter.slug}`,
+    }));
+
   return frontmatters;
 };
 
