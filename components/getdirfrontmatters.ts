@@ -39,7 +39,22 @@ type RantFrontmatter = {
   link: string;
 };
 
-type Frontmatter = ProjectFrontmatter | ThoughtFrontmatter | RantFrontmatter;
+type DoggoFrontmatter = {
+  slug: string;
+  featured: boolean;
+  title: string;
+  desc: string;
+  date: string;
+  coverImage: string;
+  socialImage?: string;
+  link: string;
+};
+
+type Frontmatter =
+  | ProjectFrontmatter
+  | ThoughtFrontmatter
+  | RantFrontmatter
+  | DoggoFrontmatter;
 
 const getDirFrontmatters = (
   dir: string,
@@ -69,5 +84,6 @@ export type {
   ProjectFrontmatter,
   ThoughtFrontmatter,
   RantFrontmatter,
+  DoggoFrontmatter,
   Frontmatter,
 };

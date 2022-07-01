@@ -21,19 +21,10 @@ import getDirFrontmatters, {
   ProjectFrontmatter,
   ThoughtFrontmatter,
   RantFrontmatter,
+  DoggoFrontmatter,
 } from '../components/getdirfrontmatters';
 import Card from '../components/card';
 import PostList from '../components/postlist';
-
-export async function getStaticProps() {
-  return {
-    props: {
-      projects: getDirFrontmatters('posts/projects', true, '/projects'),
-      thoughts: getDirFrontmatters('posts/thoughts', true, '/thoughts'),
-      rants: getDirFrontmatters('posts/rants', true, '/rants'),
-    },
-  };
-}
 
 type ContentProps = {
   baseDelay: number;
@@ -71,6 +62,43 @@ const AboutContent = ({ baseDelay }: ContentProps) => (
       here as well. Here are some of my favorites:
     </motion.p>
     {/* <motion.hr {...basicAnimation({ delay: 0.5 })} /> */}
+  </>
+);
+
+const AboutDoggosContent = ({
+  doggos,
+  baseDelay,
+}: {
+  doggos: DoggoFrontmatter[];
+} & ContentProps) => (
+  <>
+    <motion.p {...basicAnimation({ delay: baseDelay + 0 })}>
+      I'm a huge dog lover, and I sometimes dogsit cute doggos. Here are some of
+      those good bois:
+    </motion.p>
+    <SectionHeader
+      heading="Doggos"
+      link="/doggos"
+      gradientColors={navData.doggos.colors}
+      umamiEvent="home-doggos-all"
+      delay={baseDelay + 0.05}
+    />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pb-10">
+      {doggos
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .map((doggo, i) => {
+          return (
+            <Card
+              key={i}
+              title={doggo.title}
+              image={doggo.coverImage}
+              link={doggo.link}
+              umamiEvent={`home-project-${doggo.slug}`}
+              delay={baseDelay + i * 0.05}
+            />
+          );
+        })}
+    </div>
   </>
 );
 
@@ -124,16 +152,17 @@ const WebsiteInfoContent = ({ baseDelay }: ContentProps) => (
 
 const FeaturedProjectsContent = ({
   projects,
+  baseDelay,
 }: {
   projects: ProjectFrontmatter[];
-}): JSX.Element => (
+} & ContentProps): JSX.Element => (
   <>
     <SectionHeader
       heading="Projects"
       link="/projects"
       gradientColors={navData.projects.colors}
       umamiEvent="home-projects-all"
-      delay={0.55}
+      delay={baseDelay}
     />
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pb-10">
       {projects
@@ -144,9 +173,9 @@ const FeaturedProjectsContent = ({
               key={i}
               title={project.title}
               image={project.coverImage}
-              link={`/projects/${project.slug}`}
+              link={project.link}
               umamiEvent={`home-project-${project.slug}`}
-              delay={0.6 + i * 0.05}
+              delay={baseDelay + i * 0.05}
             />
           );
         })}
@@ -157,19 +186,20 @@ const FeaturedProjectsContent = ({
 const FeaturedThoughtsAndRantsContent = ({
   thoughts,
   rants,
+  baseDelay,
 }: {
   thoughts: ThoughtFrontmatter[];
   rants: RantFrontmatter[];
-}): JSX.Element => (
+} & ContentProps): JSX.Element => (
   <>
     <SectionHeader
       heading="Thoughts + Rants"
       gradientColors={navData.thoughts.colors}
       umamiEvent="home-thoughts-all"
       link="/thoughts"
-      delay={0.8}
+      delay={baseDelay}
     />
-    <PostList posts={_.concat(thoughts, rants)} baseDelay={0.8} />
+    <PostList posts={_.concat(thoughts, rants)} baseDelay={baseDelay} />
   </>
 );
 
@@ -210,9 +240,26 @@ type HomeProps = {
   projects: ProjectFrontmatter[];
   thoughts: ThoughtFrontmatter[];
   rants: RantFrontmatter[];
+  doggos: DoggoFrontmatter[];
 };
 
-const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
+export async function getStaticProps() {
+  return {
+    props: {
+      projects: getDirFrontmatters('posts/projects', true, '/projects'),
+      thoughts: getDirFrontmatters('posts/thoughts', true, '/thoughts'),
+      rants: getDirFrontmatters('posts/rants', true, '/rants'),
+      doggos: getDirFrontmatters('posts/doggos', true, '/doggos'),
+    },
+  };
+}
+
+const Home = ({
+  projects,
+  thoughts,
+  rants,
+  doggos,
+}: HomeProps): JSX.Element => {
   // const pageData = usePageData();
   const pageData = navData.home;
   return (
@@ -254,16 +301,16 @@ const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
           scale={1.3}
           xOffset="30%"
           yOffset="0"
-        />
+        /> */}
         <GlareImage
           imageNumber={1}
           className=""
-          hueOffset={30}
+          hueOffset={10}
           opacityStatic={0.9}
           scale={1.3}
           xOffset="calc(50% - 100px)"
-          yOffset="calc(50% - 100px)"
-        /> */}
+          yOffset="100vh"
+        />
         <GlareImage
           imageNumber={3}
           scale={2}
@@ -330,13 +377,16 @@ const Home = ({ projects, thoughts, rants }: HomeProps): JSX.Element => {
                 className="md:hidden"
               />
               <AboutContent baseDelay={0.3} />
-              <FeaturedProjectsContent projects={projects} />
+              <FeaturedProjectsContent projects={projects} baseDelay={0.5} />
               <FeaturedThoughtsAndRantsContent
                 thoughts={thoughts}
                 rants={rants}
+                baseDelay={0.7}
               />
               <motion.hr {...basicAnimation({ delay: 0.9 })} />
-              <WebsiteInfoContent baseDelay={0.9} />
+              <AboutDoggosContent doggos={doggos} baseDelay={0.9} />
+              <motion.hr {...basicAnimation({ delay: 1.1 })} />
+              <WebsiteInfoContent baseDelay={1.1} />
             </div>
             <div className="col-span-1 order-1 sm:order-2">
               <ContactContent />
