@@ -67,7 +67,7 @@ const PostPage = ({
       <div className="relative">
         <GlareImage
           scale={2}
-          hueOffset={90}
+          hueOffset={60}
           xOffset={'calc(50vw - 1000px)'}
           yOffset={'-500px'}
         />

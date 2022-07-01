@@ -36,6 +36,12 @@ const navData: { [key: string]: NavItem } = {
   rants: {
     href: '/rants',
     label: 'Rants',
+    colors: [colors.red['400'], colors.orange['400']],
+    altColors: [colors.red['200'], colors.orange['400']],
+  },
+  doggos: {
+    href: '/doggos',
+    label: 'Doggos',
     colors: [colors.amber['200'], colors.yellow['400']],
     altColors: [colors.amber['200'], colors.orange['400']],
   },

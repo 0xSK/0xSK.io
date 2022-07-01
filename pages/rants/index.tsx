@@ -34,7 +34,7 @@ const RantsPage = ({ rants }: RantsPageProps): JSX.Element => {
           imageNumber={0}
           opacityStatic={1}
           scale={1.5}
-          hueOffset={90}
+          hueOffset={60}
           xOffset={'-300px'}
           yOffset={'-500px'}
         />

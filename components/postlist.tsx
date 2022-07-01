@@ -31,6 +31,7 @@ type Post = {
   title: string;
   date: string;
   link: string;
+  slug: string;
 };
 
 type PostListProps = {
@@ -55,7 +56,7 @@ const PostList = ({
     <>
       {posts
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .map(({ title, date, link }, i) => {
+        .map(({ title, date, link, slug }, i) => {
           return (
             <motion.div
               {...basicAnimation({ delay: baseDelay + i * childrenDelay })}
