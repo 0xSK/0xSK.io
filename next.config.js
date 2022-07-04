@@ -5,6 +5,10 @@ const nextConfig = {
     emotion: true,
   },
   unstable_runtimeJS: false,
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
 };
 
 module.exports = nextConfig;
