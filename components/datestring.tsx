@@ -18,7 +18,7 @@ type DateProps = {
   className?: string;
 };
 
-const Date = ({ date, className = '' }: DateProps): JSX.Element => {
+const DateString = ({ date, className = '' }: DateProps): JSX.Element => {
   // input: 2020-01-01
   // output: Jan 1, 2020
   const [year, month, day] = date.split('-');
@@ -29,4 +29,4 @@ const Date = ({ date, className = '' }: DateProps): JSX.Element => {
   );
 };
 
-export default Date;
+export default DateString;
