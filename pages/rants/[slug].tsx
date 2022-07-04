@@ -97,7 +97,7 @@ const PostPage = ({
           >
             <motion.h1
               {...basicAnimation({ delay: 0.2 })}
-              className="text-center text-6xl"
+              className="text-center lg:text-6xl"
             >
               <GradientText
                 colors={pageData.colors}
