@@ -33,7 +33,7 @@ type ContentProps = {
 const AboutContent = ({ baseDelay }: ContentProps) => (
   <>
     <motion.p className="mt-0" {...basicAnimation({ delay: baseDelay + 0 })}>
-      I'm a recent graduate from University of Illinois at Urbana-Champaign,
+      I&rsquo;m a recent graduate from University of Illinois at Urbana-Champaign,
       where I completed my B.Sc. in Computer Engineering with a minor in Art &
       Design.
     </motion.p>
@@ -42,7 +42,7 @@ const AboutContent = ({ baseDelay }: ContentProps) => (
       Learning, Acoustics, and Open-Source Hardware Toolchains.
     </motion.p>
     <motion.p {...basicAnimation({ delay: baseDelay + 0.1 })}>
-      I'm passionate about Electronics Repair, Audio Engineering, Homelab (or
+      I&rsquo;m passionate about Electronics Repair, Audio Engineering, Homelab (or
       personal workstations &amp; servers), Typography, Product Design, and
       UI/UX design. Most of my{' '}
       <Link href="/projects" passHref>
@@ -73,7 +73,7 @@ const AboutDoggosContent = ({
 } & ContentProps) => (
   <>
     <motion.p {...basicAnimation({ delay: baseDelay + 0 })}>
-      I'm a huge dog lover, and I sometimes dogsit cute doggos. Here are some of
+      I&rsquo;m also a huge dog lover, and I sometimes dogsit cute doggos. Here are some of
       those good bois:
     </motion.p>
     <SectionHeader

@@ -55,7 +55,6 @@ const RantsPage = ({ rants }: RantsPageProps): JSX.Element => {
         <Section>
           <PostList
             posts={rants}
-            baseDir="rants"
             umamiEventPrefix="rants-"
             baseDelay={0.2}
           />
