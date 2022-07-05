@@ -2,10 +2,10 @@ import colors from 'tailwindcss/colors';
 import _ from 'lodash';
 
 type NavItem = {
-  href: string,
-  label: string,
-  colors: string[],
-  altColors: string[],
+  href: string;
+  label: string;
+  colors: string[];
+  altColors: string[];
 };
 
 const navData: { [key: string]: NavItem } = {
@@ -24,14 +24,14 @@ const navData: { [key: string]: NavItem } = {
   projects: {
     href: '/projects',
     label: 'Projects',
-    colors: [colors.blue['300'], colors.indigo['400'],],
+    colors: [colors.blue['300'], colors.indigo['400']],
     altColors: [colors.indigo['200'], colors.blue['400']],
   },
-  thoughts: {
-    href: '/thoughts',
-    label: 'Thoughts',
-    colors: [colors.lime['200'], colors.emerald['400']],
-    altColors: [colors.emerald['400'], colors.emerald['200']],
+  ideas_rants: {
+    href: '/ideas-rants',
+    label: 'Ideas + Rants',
+    colors: [colors.amber['200'], colors.yellow['400']],
+    altColors: [colors.amber['200'], colors.orange['400']],
   },
   rants: {
     href: '/rants',
@@ -42,18 +42,19 @@ const navData: { [key: string]: NavItem } = {
   doggos: {
     href: '/doggos',
     label: 'Doggos',
-    colors: [colors.amber['200'], colors.yellow['400']],
-    altColors: [colors.amber['200'], colors.orange['400']],
+    colors: [colors.lime['200'], colors.emerald['400']],
+    altColors: [colors.emerald['400'], colors.emerald['200']],
   },
   resume: {
     href: '/resume',
     label: 'Résumé',
-    colors: [colors.fuchsia['300'], colors.pink['400'],],
+    colors: [colors.fuchsia['300'], colors.pink['400']],
     altColors: [colors.fuchsia['200'], colors.fuchsia['400']],
   },
 };
 
 export default navData;
 
-const navPages = _.map(navData, (item, key) => key)
-export {navPages}
+const navPages = _.map(navData, (item, key) => key);
+export { navPages };
+export type { NavItem };

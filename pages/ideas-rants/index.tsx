@@ -8,25 +8,29 @@ import Card from '../../components/card';
 import usePageData from '../../components/usepagedata';
 import GlareImage from '../../components/glareimage';
 import Breadcrumb from '../../components/breadcrumb';
-import type { ThoughtFrontmatter } from '../../components/getdirfrontmatters';
+import type { IdeaRantFrontmatter } from '../../components/getdirfrontmatters';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../../components/animation';
 import PostList from '../../components/postlist';
 
-type ThoughtsPageProps = {
-  thoughts: ThoughtFrontmatter[];
+type IdeasRantsPageProps = {
+  IdeasRants: IdeaRantFrontmatter[];
 };
 
 export async function getStaticProps() {
   return {
     props: {
-      thoughts: getDirFrontmatters('posts/thoughts', false, '/thoughts'),
+      IdeasRants: getDirFrontmatters(
+        'posts/ideas-rants',
+        false,
+        '/ideas-rants'
+      ),
     },
   };
 }
 
-const ThoughtsPage = ({ thoughts }: ThoughtsPageProps): JSX.Element => {
-  const pageData = navData.thoughts;
+const IdeasRantsPage = ({ IdeasRants }: IdeasRantsPageProps): JSX.Element => {
+  const pageData = navData.ideas_rants;
   return (
     <>
       <div className="relative">
@@ -45,7 +49,7 @@ const ThoughtsPage = ({ thoughts }: ThoughtsPageProps): JSX.Element => {
               {...basicAnimation({ delay: 0 })}
               className="col-span-1"
             >
-              <Breadcrumb />
+              <Breadcrumb pageData={pageData} />
             </motion.div>
             <div className="col-span-1">
               <Nav />
@@ -54,8 +58,8 @@ const ThoughtsPage = ({ thoughts }: ThoughtsPageProps): JSX.Element => {
         </Section>
         <Section>
           <PostList
-            posts={thoughts}
-            umamiEventPrefix="thoughts-"
+            posts={IdeasRants}
+            umamiEventPrefix="ideas-rants-"
             baseDelay={0.2}
           />
         </Section>
@@ -64,4 +68,4 @@ const ThoughtsPage = ({ thoughts }: ThoughtsPageProps): JSX.Element => {
   );
 };
 
-export default ThoughtsPage;
+export default IdeasRantsPage;

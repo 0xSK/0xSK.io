@@ -19,9 +19,8 @@ import { css } from '@emotion/react';
 import SectionHeader from '../components/sectionheader';
 import getDirFrontmatters, {
   ProjectFrontmatter,
-  ThoughtFrontmatter,
-  RantFrontmatter,
   DoggoFrontmatter,
+  IdeaRantFrontmatter,
 } from '../components/getdirfrontmatters';
 import Card from '../components/card';
 import PostList from '../components/postlist';
@@ -33,17 +32,17 @@ type ContentProps = {
 const AboutContent = ({ baseDelay }: ContentProps) => (
   <>
     <motion.p className="mt-0" {...basicAnimation({ delay: baseDelay + 0 })}>
-      I&rsquo;m a recent graduate from University of Illinois at Urbana-Champaign,
-      where I completed my B.Sc. in Computer Engineering with a minor in Art &
-      Design.
+      I&rsquo;m a recent graduate from University of Illinois at
+      Urbana-Champaign, where I completed my B.Sc. in Computer Engineering with
+      a minor in Art & Design.
     </motion.p>
     <motion.p {...basicAnimation({ delay: baseDelay + 0.05 })}>
       My research interests are in the areas of Computer Architecture, Machine
       Learning, Acoustics, and Open-Source Hardware Toolchains.
     </motion.p>
     <motion.p {...basicAnimation({ delay: baseDelay + 0.1 })}>
-      I&rsquo;m passionate about Electronics Repair, Audio Engineering, Homelab (or
-      personal workstations &amp; servers), Typography, Product Design, and
+      I&rsquo;m passionate about Electronics Repair, Audio Engineering, Homelab
+      (or personal workstations &amp; servers), Typography, Product Design, and
       UI/UX design. Most of my{' '}
       <Link href="/projects" passHref>
         <a>projects</a>
@@ -52,11 +51,11 @@ const AboutContent = ({ baseDelay }: ContentProps) => (
     </motion.p>
     <motion.p {...basicAnimation({ delay: baseDelay + 0.15 })}>
       I sometimes write about my{' '}
-      <Link href="/thoughts" passHref>
-        <a>findings and thoughts</a>
+      <Link href="/ideas-rants" passHref>
+        <a>findings and ideas</a>
       </Link>{' '}
       on this website, and rather frequently{' '}
-      <Link href="/rants" passHref>
+      <Link href="/ideas-rants" passHref>
         <a>rant</a>
       </Link>{' '}
       here as well. Here are some of my favorites:
@@ -73,8 +72,8 @@ const AboutDoggosContent = ({
 } & ContentProps) => (
   <>
     <motion.p {...basicAnimation({ delay: baseDelay + 0 })}>
-      I&rsquo;m also a huge dog lover, and I sometimes dogsit cute doggos. Here are some of
-      those good bois:
+      I&rsquo;m also a huge dog lover, and I sometimes dogsit cute doggos. Here
+      are some of those good bois:
     </motion.p>
     <SectionHeader
       heading="Doggos"
@@ -183,23 +182,21 @@ const FeaturedProjectsContent = ({
   </>
 );
 
-const FeaturedThoughtsAndRantsContent = ({
-  thoughts,
-  rants,
+const FeaturedIdeasRantsContent = ({
+  ideasRants,
   baseDelay,
 }: {
-  thoughts: ThoughtFrontmatter[];
-  rants: RantFrontmatter[];
+  ideasRants: IdeaRantFrontmatter[];
 } & ContentProps): JSX.Element => (
   <>
     <SectionHeader
-      heading="Thoughts + Rants"
-      gradientColors={navData.thoughts.colors}
-      umamiEvent="home-thoughts-all"
-      link="/thoughts"
+      heading={navData.ideas_rants.label}
+      gradientColors={navData.ideas_rants.colors}
+      umamiEvent="home-ideas-rants-all"
+      link={navData.ideas_rants.href}
       delay={baseDelay}
     />
-    <PostList posts={_.concat(thoughts, rants)} baseDelay={baseDelay} />
+    <PostList posts={ideasRants} baseDelay={baseDelay} />
   </>
 );
 
@@ -238,8 +235,7 @@ const ContactContent = () => (
 
 type HomeProps = {
   projects: ProjectFrontmatter[];
-  thoughts: ThoughtFrontmatter[];
-  rants: RantFrontmatter[];
+  ideasRants: IdeaRantFrontmatter[];
   doggos: DoggoFrontmatter[];
 };
 
@@ -247,19 +243,13 @@ export async function getStaticProps() {
   return {
     props: {
       projects: getDirFrontmatters('posts/projects', true, '/projects'),
-      thoughts: getDirFrontmatters('posts/thoughts', true, '/thoughts'),
-      rants: getDirFrontmatters('posts/rants', true, '/rants'),
+      ideasRants: getDirFrontmatters('posts/ideas-rants', true, '/ideas-rants'),
       doggos: getDirFrontmatters('posts/doggos', true, '/doggos'),
     },
   };
 }
 
-const Home = ({
-  projects,
-  thoughts,
-  rants,
-  doggos,
-}: HomeProps): JSX.Element => {
+const Home = ({ projects, ideasRants, doggos }: HomeProps): JSX.Element => {
   // const pageData = usePageData();
   const pageData = navData.home;
   return (
@@ -378,9 +368,8 @@ const Home = ({
               />
               <AboutContent baseDelay={0.3} />
               <FeaturedProjectsContent projects={projects} baseDelay={0.5} />
-              <FeaturedThoughtsAndRantsContent
-                thoughts={thoughts}
-                rants={rants}
+              <FeaturedIdeasRantsContent
+                ideasRants={ideasRants}
                 baseDelay={0.7}
               />
               <motion.hr {...basicAnimation({ delay: 0.9 })} />

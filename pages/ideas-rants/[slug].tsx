@@ -14,7 +14,7 @@ import usePageData from '../../components/usepagedata';
 import GlareImage from '../../components/glareimage';
 import Breadcrumb from '../../components/breadcrumb';
 import Sheet from '../../components/sheet';
-import { ThoughtFrontmatter } from '../../components/getdirfrontmatters';
+import { IdeaRantFrontmatter } from '../../components/getdirfrontmatters';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../../components/animation';
 import Image from 'next/image';
@@ -25,14 +25,14 @@ type Params = {
   };
 };
 
-type ThoughtPostPageProps = {
-  frontmatter: ThoughtFrontmatter;
+type IdeaRantPostPageProps = {
+  frontmatter: IdeaRantFrontmatter;
   content: string;
 };
 
 export function getStaticPaths() {
-  const thoughtsDir = 'posts/thoughts';
-  const files = fs.readdirSync(thoughtsDir);
+  const ideaRantsDir = 'posts/ideas-rants';
+  const files = fs.readdirSync(ideaRantsDir);
   const paths = files.map((file) => ({
     params: {
       slug: file.replace('.md', '').toLowerCase(),
@@ -45,9 +45,9 @@ export function getStaticPaths() {
 }
 
 export function getStaticProps({ params }: Params) {
-  const thoughtFile = `${process.cwd()}/posts/thoughts/${params.slug}.md`;
-  const thoughtContents = fs.readFileSync(thoughtFile, 'utf8');
-  const { data: frontmatter, content } = matter(thoughtContents);
+  const ideaRantFile = `${process.cwd()}/posts/ideas-rants/${params.slug}.md`;
+  const ideaRantContents = fs.readFileSync(ideaRantFile, 'utf8');
+  const { data: frontmatter, content } = matter(ideaRantContents);
   return {
     props: {
       frontmatter: frontmatter,
@@ -59,8 +59,8 @@ export function getStaticProps({ params }: Params) {
 const PostPage = ({
   frontmatter,
   content,
-}: ThoughtPostPageProps): JSX.Element => {
-  const pageData = navData.thoughts;
+}: IdeaRantPostPageProps): JSX.Element => {
+  const pageData = navData.ideas_rants;
 
   return (
     <>
@@ -76,7 +76,7 @@ const PostPage = ({
           <div className="grid lg:grid-cols-[1fr_1fr] md:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4">
             <div className="col-span-1">
               <motion.div {...basicAnimation({ delay: 0 })}>
-                <Breadcrumb />
+                <Breadcrumb pageData={pageData} />
               </motion.div>
               <motion.div {...basicAnimation({ delay: 0.1 })}>
                 <p>{frontmatter.desc}</p>
@@ -91,10 +91,7 @@ const PostPage = ({
           </div>
         </Section>
         <Section mobileFullWidth delay={0.5}>
-          <Sheet
-            className="prose-container"
-            color={pageData.colors[0]}
-          >
+          <Sheet className="prose-container" color={pageData.colors[0]}>
             <motion.h1
               {...basicAnimation({ delay: 0.2 })}
               className="text-center lg:text-6xl"

@@ -44,7 +44,7 @@ const DoggosPage = ({ doggos }: DoggosPageProps): JSX.Element => {
               {...basicAnimation({ delay: 0 })}
               className="col-span-1"
             >
-              <Breadcrumb />
+              <Breadcrumb pageData={pageData} />
             </motion.div>
             <div className="col-span-1">
               <Nav />

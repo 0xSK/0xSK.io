@@ -15,19 +15,7 @@ type ProjectFrontmatter = {
   link: string;
 };
 
-type ThoughtFrontmatter = {
-  slug: string;
-  featured: boolean;
-  title: string;
-  desc: string;
-  date: string;
-  tags: string[];
-  coverImage?: string;
-  socialImage?: string;
-  link: string;
-};
-
-type RantFrontmatter = {
+type IdeaRantFrontmatter = {
   slug: string;
   featured: boolean;
   title: string;
@@ -50,11 +38,7 @@ type DoggoFrontmatter = {
   link: string;
 };
 
-type Frontmatter =
-  | ProjectFrontmatter
-  | ThoughtFrontmatter
-  | RantFrontmatter
-  | DoggoFrontmatter;
+type Frontmatter = ProjectFrontmatter | IdeaRantFrontmatter | DoggoFrontmatter;
 
 const getDirFrontmatters = (
   dir: string,
@@ -82,8 +66,7 @@ const getDirFrontmatters = (
 export default getDirFrontmatters;
 export type {
   ProjectFrontmatter,
-  ThoughtFrontmatter,
-  RantFrontmatter,
+  IdeaRantFrontmatter,
   DoggoFrontmatter,
   Frontmatter,
 };

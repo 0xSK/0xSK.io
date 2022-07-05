@@ -167,30 +167,31 @@ const academicExperienceData: TimelineEntry[] = [
   },
 ];
 
-const Resume: NextPage = () => (
-  <>
+const Resume: NextPage = () => {
+  const pageData = navData.resume;
+  return (
     <div className="relative">
       {/* <GlareImage
-        imageNumber={2}
-        className=""
-        hueOffset={10}
-        opacityStatic={0.7}
-        scale={1.3}
-        xOffset="calc(50% - 100px)"
-        yOffset="-300px"
-      /> */}
+          imageNumber={2}
+          className=""
+          hueOffset={10}
+          opacityStatic={0.7}
+          scale={1.3}
+          xOffset="calc(50% - 100px)"
+          yOffset="-300px"
+        /> */}
       <GlareImage
-          scale={2}
-          hueOffset={-50}
-          xOffset={'calc(50vw - 1000px)'}
-          yOffset={'-500px'}
-        />
+        scale={2}
+        hueOffset={-50}
+        xOffset={'calc(50vw - 1000px)'}
+        yOffset={'-500px'}
+      />
       <Section>
         {/* Intro */}
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4">
           <div className="col-span-1">
             <motion.div {...basicAnimation({ delay: 0 })}>
-              <Breadcrumb />
+              <Breadcrumb pageData={pageData} />
             </motion.div>
             <motion.p {...basicAnimation({ delay: 0.1 })}>
               This is a web version of my résumé. You can download a PDF version
@@ -203,7 +204,7 @@ const Resume: NextPage = () => (
         </div>
       </Section>
       <Section mobileFullWidth>
-        <Sheet color={navData.resume.colors[0]}>
+        <Sheet color={pageData.colors[0]}>
           <div className="px-1 md:px-8 lg:px-12">
             <motion.h2
               {...basicAnimation({ delay: 0.3 })}
@@ -230,7 +231,7 @@ const Resume: NextPage = () => (
         </Sheet>
       </Section>
     </div>
-  </>
-);
+  );
+};
 
 export default Resume;

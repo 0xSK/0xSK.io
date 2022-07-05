@@ -76,7 +76,7 @@ const PostPage = ({
           <div className="grid lg:grid-cols-[1fr_1fr] md:grid-cols-[2fr_1fr] sm:grid-cols-1 gap-4">
             <div className="col-span-1">
               <motion.div {...basicAnimation({ delay: 0 })}>
-                <Breadcrumb />
+                <Breadcrumb pageData={pageData} />
               </motion.div>
               <motion.div {...basicAnimation({ delay: 0.1 })}>
                 <p>{frontmatter.desc}</p>
