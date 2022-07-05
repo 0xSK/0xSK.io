@@ -3,6 +3,7 @@ import GradientText from '../components/gradienttext';
 import usePageData from './usepagedata';
 import { css } from '@emotion/react';
 import type { NavItem } from './navdata';
+import Link from 'next/link';
 
 type BreadcrumbProps = {
   pageData: NavItem;
@@ -16,7 +17,12 @@ const Breadcrumb = ({
   return (
     <div className={className}>
       <h3>
-        Shreyas&nbsp;Kishore{' '}
+        {/* Name */}
+        <Link href="/" passHref>
+          <a>Shreyas&nbsp;Kishore </a>
+        </Link>
+
+        {/* Arrow */}
         <span
           css={css`
             writing-mode: vertical-lr;
@@ -24,6 +30,8 @@ const Breadcrumb = ({
         >
           &#x2191;
         </span>
+
+        {/* Page title */}
         <GradientText
           colors={pageData.colors}
           hoverColors={pageData.altColors}
