@@ -14,7 +14,7 @@ import { basicAnimation } from '../components/animation';
 import navData from '../components/navdata';
 import Link from 'next/link';
 import ExtLink from '../components/extlink';
-import Image from 'next/image';
+import Image from '../components/image';
 import { css } from '@emotion/react';
 import SectionHeader from '../components/sectionheader';
 import getDirFrontmatters, {

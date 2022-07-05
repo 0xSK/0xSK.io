@@ -4,7 +4,7 @@ import Tilt, { ReactParallaxTiltProps } from 'react-parallax-tilt';
 import _ from 'lodash';
 import { basicAnimation } from './animation';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from './image';
 
 const defaultCardTiltProps: ReactParallaxTiltProps = {
   scale: 1.1,
@@ -38,9 +38,7 @@ const Card = ({
   const tiltData = _.merge(defaultCardTiltProps, tiltProps);
   return (
     <>
-      <motion.div {...basicAnimation({ delay: delay })}
-      className="z-10"
-      >
+      <motion.div {...basicAnimation({ delay: delay })} className="z-10">
         <Tilt
           {...tiltData}
           className={`${umamiEvent && `umami--click--${umamiEvent}`}`}
@@ -49,7 +47,9 @@ const Card = ({
             <a>
               <div className="">
                 <div className="h-auto w-full">
-                  <Image src={image} alt={title}  
+                  <Image
+                    src={image}
+                    alt={title}
                     width={600}
                     height={300}
                     layout="responsive"
@@ -57,9 +57,7 @@ const Card = ({
                   />
                 </div>
                 <div>
-                  {title && (
-                    <h5>{title}</h5>
-                  )}
+                  {title && <h5>{title}</h5>}
                   {desc && <p>{desc}</p>}
                 </div>
               </div>

@@ -6,7 +6,7 @@ desc: 'why????¿‽'
 date: '2022-04-01'
 tags:
   - windows
-coverImage: '/images/ideas-rants/oscilloscope-windows.jpg'
+coverImage: '//images/ideas-rants/oscilloscope-windows.jpg'
 ---
 
 ... on the upside there's paint.exe

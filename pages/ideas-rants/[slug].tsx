@@ -17,7 +17,7 @@ import Sheet from '../../components/sheet';
 import { IdeaRantFrontmatter } from '../../components/getdirfrontmatters';
 import { motion } from 'framer-motion';
 import { basicAnimation } from '../../components/animation';
-import Image from 'next/image';
+import Image from '../../components/image';
 
 type Params = {
   params: {
