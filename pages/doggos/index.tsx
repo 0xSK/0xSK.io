@@ -33,7 +33,7 @@ const DoggosPage = ({ doggos }: DoggosPageProps): JSX.Element => {
           imageNumber={1}
           opacityStatic={0.9}
           scale={2}
-          hueOffset={90}
+          hueOffset={200}
           xOffset={'calc(50vw - 1000px)'}
           yOffset={'-500px'}
         />

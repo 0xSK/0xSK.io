@@ -35,10 +35,10 @@ const IdeasRantsPage = ({ IdeasRants }: IdeasRantsPageProps): JSX.Element => {
     <>
       <div className="relative">
         <GlareImage
-          imageNumber={1}
+          imageNumber={3}
           opacityStatic={1}
           scale={2}
-          hueOffset={200}
+          hueOffset={85}
           xOffset={'calc(50vw - 1000px)'}
           yOffset={'-500px'}
         />
