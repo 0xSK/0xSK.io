@@ -15,7 +15,7 @@ const Sheet = ({
   Tag = 'div',
   color
 }: SheetProps): JSX.Element => {
-  const generatedClassName = `relative blurred-container w-full py-12 px-6 md:px-0 z-1 shadow-xl  mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28 shadow-[${color}] ${className}`;
+  const generatedClassName = `relative blurred-container w-full py-12 px-6 z-1 shadow-xl  mx-auto md:max-w-3xl lg:max-w-4xl lg:pt-16 lg:pb-28 shadow-[${color}] ${className}`;
   const style = {
     '--blurred-container-background': `${color}10`,
     '--blurred-container-background-fallback': `${color}10`,
