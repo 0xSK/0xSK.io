@@ -9,12 +9,6 @@ type NavItem = {
 };
 
 const navData: { [key: string]: NavItem } = {
-  // home: {
-  //   href: '/',
-  //   label: 'Home',
-  //   colors: [colors.pink['300'], colors.rose['400']],
-  //   altColors: [colors.red['200'], colors.pink['400']],
-  // },
   home: {
     href: '/',
     label: 'Home',
@@ -32,12 +26,6 @@ const navData: { [key: string]: NavItem } = {
     label: 'Ideas + Rants',
     colors: [colors.amber['200'], colors.yellow['400']],
     altColors: [colors.amber['200'], colors.orange['400']],
-  },
-  rants: {
-    href: '/rants',
-    label: 'Rants',
-    colors: [colors.red['400'], colors.orange['400']],
-    altColors: [colors.red['200'], colors.orange['400']],
   },
   doggos: {
     href: '/doggos',

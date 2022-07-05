@@ -69,7 +69,12 @@ const Hex = ({
   className,
 }: HexProps): JSX.Element => (
   <div className={`
-    absolute top-0 md:-right-16 scale-75 translate-y-6 md:-translate-y-4 lg:scale-100 lg:-translate-y-1 -translate-x-16 md:translate-x-0 brightness-100 ${className}`}>
+    absolute top-0 md:-right-16
+    scale-[0.7] lg:scale-[0.9] 
+    brightness-[0.9] 
+    -translate-x-14 md:-translate-x-2 lg:-translate-x-5
+    translate-y-3 md:-translate-y-7 lg:-translate-y-5
+    ${className}`}>
     <motion.div
       initial={{ rotate: angle, scale: scale }}
       animate={{
