@@ -10,7 +10,7 @@ module.exports = {
       sans: ['Space Grotesk', 'sans-serif'],
       serif: ['scotch-display', 'serif'],
       mono: ['Space Mono', 'monospace'],
-      hindi: ['Teko', 'sans-serif'],
+      hindi: ['Rajdhani', 'sans-serif'],
     },
     extend: {},
   },
