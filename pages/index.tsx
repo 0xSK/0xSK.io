@@ -213,19 +213,22 @@ const ContactContent = () => (
       />
     </motion.div>
     <motion.p {...basicAnimation({ delay: 0.55 })}>
-      Telegram{' '}
+      Pronouns: <ExtLink href="https://en.pronouns.page/he">he/him</ExtLink>
+    </motion.p>
+    <motion.p {...basicAnimation({ delay: 0.6 })}>
+      Telegram:{' '}
       <ExtLink href="https://t.me/shreyaskishore">@shreyaskishore</ExtLink>{' '}
       <br />
-      Matrix <ExtLink href="https://matrix.to/#/@i:0xsk.io">
+      Matrix: <ExtLink href="https://matrix.to/#/@i:0xsk.io">
         @i:0xSK.io
       </ExtLink>{' '}
       <br />
-      Email <ExtLink href="mailto:i@0xsk.io">i@0xsk.io</ExtLink> <br />
-      Twitter <ExtLink href="https://twitter.com/_0xsk">@_0xsk</ExtLink> <br />
-      Messenger <ExtLink href="https://m.me/00xsk">@00xsk</ExtLink> <br />
-      Facebook <ExtLink href="https://fb.me/00xsk">@00xsk</ExtLink> <br />
-      Github <ExtLink href="https://github.com/0xsk">@0xsk</ExtLink> <br />
-      LinkedIn <ExtLink href="https://www.linkedin.com/in/0xsk">
+      Email: <ExtLink href="mailto:i@0xsk.io">i@0xsk.io</ExtLink> <br />
+      Twitter: <ExtLink href="https://twitter.com/_0xsk">@_0xsk</ExtLink> <br />
+      Messenger: <ExtLink href="https://m.me/00xsk">@00xsk</ExtLink> <br />
+      Facebook: <ExtLink href="https://fb.me/00xsk">@00xsk</ExtLink> <br />
+      Github: <ExtLink href="https://github.com/0xsk">@0xsk</ExtLink> <br />
+      LinkedIn: <ExtLink href="https://www.linkedin.com/in/0xsk">
         @0xsk
       </ExtLink>{' '}
       <br />
