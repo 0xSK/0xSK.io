@@ -8,7 +8,7 @@ date: '2022-03-01'
 coverImage: /images/doggos/milo-cover.jpg
 ---
 
-Milo was a cute 1 year old Goldendoodle. He loved stealing our:
+Milo is a cute Goldendoodle, we had him for a few days when he was about a year old. He loved stealing our:
 * Subway
 ![Milo begging for subway](/images/doggos/milo-subway.jpg)
 

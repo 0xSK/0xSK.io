@@ -22,7 +22,7 @@ const educationData: TimelineEntry[] = [
   {
     title: 'Delhi Public School, R. K. Puram',
     icon: 'school',
-    time: 'July 2015 — May 2022',
+    time: 'July 2015 — May 2017',
     desc: 'High School Diploma',
   },
 ];

@@ -8,7 +8,7 @@ date: '2022-04-01'
 coverImage: /images/doggos/otis-cover.jpg
 ---
 
-Otis is a mix of **Bearded Collie, Border Collie, Jack Russell Terrier, and Norwegian Elkhound**, or BCBCJRTNE for short. 
+Otis is a mix of **Bearded Collie, Border Collie, Jack Russell Terrier, and Norwegian Elkhound**, or BCBCJRTNE for short. I had him for a week-long stay. 
 
 His favorite activities were:
 

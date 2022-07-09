@@ -141,7 +141,7 @@ const WebsiteInfoContent = ({ baseDelay }: ContentProps) => (
       >
         This website does not use any cookies
       </ExtLink>
-      . To keep count of page views (as a way to guage interest on my site), I
+      . To keep count of page views (as a way to gauge interest on my site), I
       use a self-hosted instance of{' '}
       <ExtLink href="https://umami.is">Umami</ExtLink>. Umami does not collect
       any personally identifiable information and anonymizes all data.

@@ -45,6 +45,11 @@ const DoggosPage = ({ doggos }: DoggosPageProps): JSX.Element => {
               className="col-span-1"
             >
               <Breadcrumb pageData={pageData} />
+              <p>
+                Here are some of the dogs I dogsat, in no particular order (I
+                love <span className="line-through">all</span> most of them
+                equally).
+              </p>
             </motion.div>
             <div className="col-span-1">
               <Nav />
