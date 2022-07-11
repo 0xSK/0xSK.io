@@ -80,7 +80,7 @@ const PostPage = ({
               </motion.div>
               <motion.div {...basicAnimation({ delay: 0.1 })}>
                 <p>{frontmatter.desc}</p>
-                <p className="font-thin text-sm">
+                <p className="text-sm">
                   Posted on <DateString date={frontmatter.date} />
                 </p>
               </motion.div>

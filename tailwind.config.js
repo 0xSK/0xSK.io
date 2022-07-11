@@ -7,7 +7,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Space Grotesk', 'sans-serif'],
+      sans: ['Inter', 'sans-serif'],
+      display: ['Space Grotesk', 'sans-serif'],
       serif: ['scotch-display', 'serif'],
       mono: ['Space Mono', 'monospace'],
       hindi: ['Rajdhani', 'sans-serif'],

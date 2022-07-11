@@ -82,12 +82,12 @@ const PostList = ({
                       </colgroup>
                       <tbody>
                         <tr className="">
-                          <td className="text-left whitespace-nowrap text-ellipsis overflow-hidden max-w-0 py-1 text-lg font-semibold">
+                          <td className="text-left whitespace-nowrap text-ellipsis overflow-hidden max-w-0 py-1 text-lg font-semibold font-display">
                             {title}
                           </td>
                           {date && (
                             <td className="text-right whitespace-nowrap">
-                              <DateString date={date} className="font-thin text-sm" />
+                              <DateString date={date} className="text-sm font-display font-thin" />
                             </td>
                           )}
                         </tr>

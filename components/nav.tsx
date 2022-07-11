@@ -61,7 +61,7 @@ const Nav = ({}: NavProps): JSX.Element => {
               return (
                 <tr key={navPageKey} onMouseEnter={() => {}}>
                   <td
-                    className={`md:text-right sm:text-left font-sans m-0 p-0 leading-normal ${
+                    className={`md:text-right sm:text-left font-display m-0 p-0 leading-normal ${
                       useIsActive(navPageData.href, navPageData.label)
                         ? 'font-extrabold text-white/90'
                         : 'font-medium text-white/50'
