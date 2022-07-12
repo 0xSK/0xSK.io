@@ -68,11 +68,11 @@ const SectionHeader = ({
                   hoverColors={gradientColors}
                   time={1.5}
                 >
-                  <span>
+                  {/* <span>
                     <span className="">{linkText}&nbsp;</span>{' '}
-                    {/* TODO: baseline shift */}
                     <span className="font-mono">-&gt;</span>
-                  </span>
+                  </span> */}
+                  <span className="font-display">{linkText}&nbsp;&rarr;</span>
                 </GradientText>
               </a>
             </Link>
