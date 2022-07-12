@@ -121,8 +121,8 @@ const WebsiteInfoContent = ({ baseDelay }: ContentProps) => (
       Credit for the awesome typefaces goes to{' '}
       <ExtLink href="https://fonts.floriankarsten.com/">
         Florain Karsten Typefaces
-      </ExtLink>{' '}
-      and{' '}
+      </ExtLink>
+      , <ExtLink href="https://rsms.me">Rasmus Andersson</ExtLink>, and{' '}
       <ExtLink href="https://indiantypefoundry.com/">
         Indian Type Foundry
       </ExtLink>
@@ -219,10 +219,8 @@ const ContactContent = () => (
       Telegram:{' '}
       <ExtLink href="https://t.me/shreyaskishore">@shreyaskishore</ExtLink>{' '}
       <br />
-      Matrix: <ExtLink href="https://matrix.to/#/@i:0xsk.io">
-        @i:0xSK.io
-      </ExtLink>{' '}
-      <br />
+      Matrix:{' '}
+      <ExtLink href="https://matrix.to/#/@i:0xsk.io">@i:0xSK.io</ExtLink> <br />
       Email: <ExtLink href="mailto:i@0xsk.io">i@0xsk.io</ExtLink> <br />
       Twitter: <ExtLink href="https://twitter.com/_0xsk">@_0xsk</ExtLink> <br />
       Messenger: <ExtLink href="https://m.me/00xsk">@00xsk</ExtLink> <br />
