@@ -16,13 +16,13 @@ const educationData: TimelineEntry[] = [
   {
     title: 'University of Illinois at Urbana-Champaign',
     icon: 'college',
-    time: 'August 2017 — May 2022',
+    time: 'August 2017 – May 2022',
     desc: 'B.Sc. in Computer Engineering with a minor in Art & Design.',
   },
   {
     title: 'Delhi Public School, R. K. Puram',
     icon: 'school',
-    time: 'July 2015 — May 2017',
+    time: 'July 2015 – May 2017',
     desc: 'High School Diploma',
   },
 ];
@@ -39,7 +39,7 @@ const workExperienceData: TimelineEntry[] = [
     icon: 'Synchrony',
     time: 'August 2020 – May 2021 · Remote',
     desc: [
-      'Worked on building a new UI for the Synchrony product.',
+      'Designed a new UI for customers\' credit card dashboard.',
       'Conducted user surveys and implemented a data-driven approach for design thinking.',
     ],
   },
@@ -94,19 +94,10 @@ const workExperienceData: TimelineEntry[] = [
 ];
 
 const academicExperienceData: TimelineEntry[] = [
-  //   {
-  //     title: 'Passat Research Group — Research Assistant · Uncertainity Project',
-  //     icon: 'research',
-  //     time: 'August 2021 — January 2022 · Champaign, IL',
-  //     desc: [
-  //       "Worked on a project that explores the possibility of mitigating supply and demand uncertainty from an architect's perspective.",
-  //       'Generating an economic model of the problem and implemented the model in Python.',
-  //     ],
-  //   },
   {
     title: 'Passat Research Group — Research Assistant · Uncertainity Project',
     icon: 'research',
-    time: 'August 2021 — January 2022 · Champaign, IL',
+    time: 'August 2021 – January 2022 · Champaign, IL',
     desc: [
       "Worked on a project that explores the possibility of mitigating supply and demand uncertainty from an architect's perspective.",
       'Generating an economic model of the problem and implemented the model in Python.',
@@ -116,7 +107,7 @@ const academicExperienceData: TimelineEntry[] = [
     title:
       'Passat Research Group — Research Assistant & Co-Author · Earables Project',
     icon: 'scroll',
-    time: 'January 2021 — May 2021 · Champaign, IL',
+    time: 'January 2021 – May 2021 · Champaign, IL',
     desc: [
       <span key={1}>
         Worked on the paper{' '}
@@ -159,7 +150,7 @@ const academicExperienceData: TimelineEntry[] = [
     title:
       'Passat Research Group — Research Assistant · Dual Front-End Microarchitecture Project',
     icon: 'research',
-    time: 'August 2020 — December 2020 · Champaign, IL',
+    time: 'August 2020 – December 2020 · Champaign, IL',
     desc: [
       'Worked on a project that analyzed the feasability of a microarchitecture that fetches and pre- processes both on-path and off-path instructions on low-confidence branch prediction.',
       'Implemented DuFE on the Gem5 Simulator.',

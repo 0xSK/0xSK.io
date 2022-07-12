@@ -62,14 +62,14 @@ const Timeline = ({
               </div>
             </span>
             {entry.title && (
-              <h5 className="flex items-center mb-1 ">
+              <p className="flex items-center mb-0 font-semibold">
                 {entry.title}
                 {entry.badge && (
                   <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
                     {entry.badge}
                   </span>
                 )}
-              </h5>
+              </p>
             )}
             {entry.time && (
               <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
