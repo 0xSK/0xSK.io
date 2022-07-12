@@ -4,16 +4,12 @@
 
 @import './inter'; /* Font Inter */
 @import './space-grotesk'; /* Font Space Grotesk */
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'); /* Space Mono */
-// @import url('https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap'); /* Teko */
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap'); /* Rajdhani */
-// make the body dark using tailwind
+@import './space-mono'; /* Font Space Mono */
+@import './rajdhani'; /* Font Rajdhani */
 
 body {
   @apply bg-black;
   @apply text-stone-300;
-  // @apply overflow-x-hidden;
 }
 
 p {
