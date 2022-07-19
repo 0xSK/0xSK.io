@@ -9,6 +9,15 @@ const nextConfig = {
     loader: 'akamai',
     path: '',
   },
+  async redirects() {
+    return [
+      {
+        source: '/resume',
+        destination: '/files/Shreyas Kishore Résumé v3.1.1.pdf',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
