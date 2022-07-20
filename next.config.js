@@ -13,7 +13,7 @@ const nextConfig = {
     return [
       {
         source: '/resume',
-        destination: '/files/Shreyas Kishore Résumé v3.1.1.pdf',
+        destination: '/files/Shreyas Kishore Résumé v3.1.2.pdf',
         permanent: true,
       },
     ];
