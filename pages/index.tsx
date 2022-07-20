@@ -368,7 +368,9 @@ const Home = ({ projects, ideasRants, doggos }: HomeProps): JSX.Element => {
                 className="md:hidden"
               />
               <AboutContent baseDelay={0.3} />
-              <FeaturedProjectsContent projects={projects} baseDelay={0.5} />
+              {projects.length > 0 && (
+                <FeaturedProjectsContent projects={projects} baseDelay={0.5} />
+              )}
               <FeaturedIdeasRantsContent
                 ideasRants={ideasRants}
                 baseDelay={0.7}

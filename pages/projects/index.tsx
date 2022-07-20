@@ -52,25 +52,35 @@ const ProjectsPage = ({ projects }: ProjectsPageProps): JSX.Element => {
           </div>
         </Section>
         <Section>
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 pb-10">
-            {projects
-              .sort(
-                (a, b) =>
-                  new Date(b.date).getTime() - new Date(a.date).getTime()
-              )
-              .map((project, i) => {
-                return (
-                  <Card
-                    key={i}
-                    title={project.title}
-                    image={project.coverImage}
-                    link={`/projects/${project.slug}`}
-                    umamiEvent={`projects-project-${project.slug}`}
-                    delay={0.2 + i * 0.1}
-                  />
-                );
-              })}
-          </div>
+          {projects.length > 0 ? (
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10 pb-10">
+              {projects
+                .sort(
+                  (a, b) =>
+                    new Date(b.date).getTime() - new Date(a.date).getTime()
+                )
+                .map((project, i) => {
+                  return (
+                    <Card
+                      key={i}
+                      title={project.title}
+                      image={project.coverImage}
+                      link={`/projects/${project.slug}`}
+                      umamiEvent={`projects-project-${project.slug}`}
+                      delay={0.2 + i * 0.1}
+                    />
+                  );
+                })}
+            </div>
+          ) : (
+            <motion.div
+              {...basicAnimation({ delay: 0.3 })}
+              className="text-center"
+            >
+              <p>¯\_(ツ)_/¯</p>
+              <p>Still adding projects here. Please check later.</p>
+            </motion.div>
+          )}
         </Section>
       </div>
     </>
