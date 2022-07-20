@@ -1,6 +1,7 @@
 ---
 slug: 'markdown-reference'
 featured: true
+published: false
 title: 'Markdown Reference'
 description: 'A reference for Markdown.'
 coverImage: '/images/projects/md.jpg'

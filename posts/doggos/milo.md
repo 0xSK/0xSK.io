@@ -3,6 +3,7 @@
 slug: milo
 title: Milo the Goldendoodle
 featured: true
+published: true
 desc: ''
 date: '2022-03-01'
 coverImage: /images/doggos/milo-cover.jpg

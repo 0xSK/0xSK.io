@@ -5,6 +5,7 @@ import _ from 'lodash';
 type ProjectFrontmatter = {
   slug: string;
   featured: boolean;
+  published: boolean;
   title: string;
   desc: string;
   date: string;
@@ -18,6 +19,7 @@ type ProjectFrontmatter = {
 type IdeaRantFrontmatter = {
   slug: string;
   featured: boolean;
+  published: boolean;
   title: string;
   desc: string;
   date: string;
@@ -30,6 +32,7 @@ type IdeaRantFrontmatter = {
 type DoggoFrontmatter = {
   slug: string;
   featured: boolean;
+  published: boolean;
   title: string;
   desc: string;
   date: string;
@@ -54,6 +57,7 @@ const getDirFrontmatters = (
   const files = fs.readdirSync(dir);
   const frontmatters = files
     .map((file) => getFileFrontmatter(`${dir}/${file}`))
+    .filter((frontmatter) => frontmatter.published)
     .filter((frontmatter) => !featuredOnly || frontmatter.featured)
     .map((frontmatter) => ({
       ...frontmatter,

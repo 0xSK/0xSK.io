@@ -1,6 +1,7 @@
 ---
 slug: 'macos-gatekeeper'
 featured: true
+published: true
 title: 'MacOS Gatekeeper lies'
 date: '2022-02-02'
 desc: 'Why is it so hard to get MacOS to open an app I want?'

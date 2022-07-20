@@ -2,6 +2,7 @@
 slug: jasper
 title: Jasper the Bernadoodle
 featured: false
+published: true
 desc: ''
 date: '2022-02-01'
 coverImage: /images/doggos/jasper-cover.jpg

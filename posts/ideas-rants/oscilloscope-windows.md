@@ -1,6 +1,7 @@
 ---
 slug: oscilloscope-windows
 featured: true
+published: true
 title: 'This oscilloscope runs Windows ...'
 desc: 'why????¿‽'
 date: '2022-04-01'

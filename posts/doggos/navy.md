@@ -2,6 +2,7 @@
 slug: navy
 title: Navy the Miniaussie
 featured: false
+published: true
 desc: ''
 date: '2022-03-01'
 coverImage: /images/doggos/navy-cover.jpg
