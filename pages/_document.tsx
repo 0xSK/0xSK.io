@@ -68,7 +68,8 @@ export default function Document() {
         <script
           type="text/javascript"
           data-website-id="2b817891-fbe8-49ba-b0af-17ef69e7f4a4"
-          src="https://umami-0xsk.vercel.app/count.js"
+          src="https://umami.0xsk.io/count.js"
+          data-domains="0xsk.io"
           async
           defer
         ></script>
